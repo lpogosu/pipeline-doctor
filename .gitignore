@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Reports the demo writes, and any corpus fetched from a real forge: build logs
+# are the last thing that should end up in a public repository by accident.
+out/
+corpus-*/
+!corpus/
+.env
+.DS_Store
+.idea/
+.vscode/
