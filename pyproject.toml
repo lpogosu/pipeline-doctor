@@ -1,0 +1,86 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pipeline-doctor"
+version = "0.3.0"
+description = "Ranks CI failures by wasted machine time and proves which ones are flakes"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "lpogosu" }]
+keywords = ["ci", "github-actions", "flaky-tests", "log-analysis", "devops"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Quality Assurance",
+]
+# No runtime dependencies. The analyser reads logs that an organisation is
+# usually unwilling to expose, so "pip install and read the source" has to stay
+# a one-evening review, not an audit of a dependency tree.
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.2.2",
+    "ruff==0.16.6",
+    "mypy==2.3.1",
+]
+
+[project.scripts]
+pipeline-doctor = "pipeline_doctor.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/lpogosu/pipeline-doctor"
+
+[tool.setuptools.packages.find]
+include = ["pipeline_doctor*"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["."]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "N",
+    "UP",
+    "B",
+    "C4",
+    "SIM",
+    "RET",
+    "PTH",
+    "S",
+    "T20",
+    "RUF",
+]
+ignore = [
+    "S101",  # asserts are what a test is
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pipeline_doctor", "tests"]
+
+[tool.ruff.lint.per-file-ignores]
+# The CLI is the only place allowed to write to stdout.
+"pipeline_doctor/cli.py" = ["T201"]
+# The corpus generator is mostly verbatim log lines, which are as long as they
+# are; wrapping them would stop them being verbatim.
+"scripts/build_corpus.py" = ["T201", "E501"]
+"scripts/*" = ["T201"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
