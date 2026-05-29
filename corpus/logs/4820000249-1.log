@@ -1,0 +1,168 @@
+2026-05-21T08:56:55.0670000Z Current runner version: '2.331.0'
+2026-05-21T08:56:55.0910000Z ##[group]Runner Image Provisioner
+2026-05-21T08:56:55.1320000Z 2.0.451.1
+2026-05-21T08:56:55.1720000Z ##[endgroup]
+2026-05-21T08:56:55.2350000Z ##[group]Operating System
+2026-05-21T08:56:55.2610000Z Ubuntu
+2026-05-21T08:56:55.3020000Z 22.04.5
+2026-05-21T08:56:55.3900000Z LTS
+2026-05-21T08:56:55.4150000Z ##[endgroup]
+2026-05-21T08:56:55.4760000Z ##[group]Runner Image
+2026-05-21T08:56:55.5100000Z Image: ubuntu-22.04
+2026-05-21T08:56:55.5800000Z Version: 20260504.1.0
+2026-05-21T08:56:55.6580000Z ##[endgroup]
+2026-05-21T08:56:55.7470000Z ##[group]GITHUB_TOKEN Permissions
+2026-05-21T08:56:55.8350000Z Contents: read
+2026-05-21T08:56:55.8800000Z Packages: read
+2026-05-21T08:56:55.9400000Z ##[endgroup]
+2026-05-21T08:56:56.0240000Z Secret source: Actions
+2026-05-21T08:56:56.1010000Z Prepare workflow directory
+2026-05-21T08:56:56.1040000Z Prepare all required actions
+2026-05-21T08:56:56.1520000Z Getting action download info
+2026-05-21T08:56:56.2060000Z ##[group]Run actions/checkout@v4.2.2
+2026-05-21T08:56:56.2160000Z with:
+2026-05-21T08:56:56.2880000Z   fetch-depth: 0
+2026-05-21T08:56:56.3290000Z   repository: ridgeline/checkout-service
+2026-05-21T08:56:56.3330000Z ##[endgroup]
+2026-05-21T08:56:56.3560000Z Syncing repository: ridgeline/checkout-service
+2026-05-21T08:56:56.4240000Z /usr/bin/git version
+2026-05-21T08:56:56.5030000Z git version 2.51.0
+2026-05-21T08:56:56.5450000Z ##[group]Determining the checkout info
+2026-05-21T08:56:56.5860000Z ##[endgroup]
+2026-05-21T08:56:56.5950000Z Fetching the repository
+2026-05-21T08:56:56.6350000Z /usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/main*:refs/remotes/origin/main*
+2026-05-21T08:56:56.6980000Z ##[group]Checking out the ref
+2026-05-21T08:56:56.7190000Z /usr/bin/git checkout --progress --force refs/remotes/origin/main
+2026-05-21T08:56:56.7940000Z HEAD is now at da74fee chore: rebase onto main
+2026-05-21T08:56:56.7970000Z ##[endgroup]
+2026-05-21T08:56:56.8420000Z ##[group]Run pytest -q tests/integration --durations=20
+2026-05-21T08:56:56.8460000Z pytest -q tests/integration --durations=20
+2026-05-21T08:56:56.9140000Z shell: /usr/bin/bash -e {0}
+2026-05-21T08:56:56.9650000Z env:
+2026-05-21T08:56:57.0080000Z   CI: true
+2026-05-21T08:56:57.0120000Z   FORCE_COLOR: 0
+2026-05-21T08:56:57.0810000Z ##[endgroup]
+2026-05-21T08:56:57.1570000Z Creating network checkout_default
+2026-05-21T08:56:57.1840000Z Creating volume checkout_pgdata
+2026-05-21T08:56:57.1950000Z Creating checkout-postgres-1 ... done
+2026-05-21T08:56:57.2060000Z Creating checkout-ledger-worker-1 ... done
+2026-05-21T08:56:57.2410000Z Attaching to checkout-postgres-1, checkout-ledger-worker-1
+2026-05-21T08:56:57.3290000Z ledger-worker-1  | [2026-05-21T08:58:26.129205Z] replay batch 20/2000 heap=1.0GiB
+2026-05-21T08:56:57.3550000Z ledger-worker-1  | [2026-05-21T08:58:27.340952Z] replay batch 40/2000 heap=1.0GiB
+2026-05-21T08:56:57.3700000Z ledger-worker-1  | [2026-05-21T08:58:28.621914Z] replay batch 60/2000 heap=1.1GiB
+2026-05-21T08:56:57.4230000Z ledger-worker-1  | [2026-05-21T08:58:29.738072Z] replay batch 80/2000 heap=1.2GiB
+2026-05-21T08:56:57.4520000Z ledger-worker-1  | [2026-05-21T08:58:30.766287Z] replay batch 100/2000 heap=1.3GiB
+2026-05-21T08:56:57.4880000Z ledger-worker-1  | [2026-05-21T08:58:31.649295Z] replay batch 120/2000 heap=1.3GiB
+2026-05-21T08:56:57.5420000Z ledger-worker-1  | [2026-05-21T08:58:33.031666Z] replay batch 140/2000 heap=1.4GiB
+2026-05-21T08:56:57.6070000Z ledger-worker-1  | [2026-05-21T08:58:34.383557Z] replay batch 160/2000 heap=1.5GiB
+2026-05-21T08:56:57.6300000Z ledger-worker-1  | [2026-05-21T08:58:35.574993Z] replay batch 180/2000 heap=1.5GiB
+2026-05-21T08:56:57.6620000Z ledger-worker-1  | [2026-05-21T08:58:36.507520Z] replay batch 200/2000 heap=1.6GiB
+2026-05-21T08:56:57.6990000Z ledger-worker-1  | [2026-05-21T08:58:37.883366Z] replay batch 220/2000 heap=1.7GiB
+2026-05-21T08:56:57.7660000Z ledger-worker-1  | [2026-05-21T08:58:39.159265Z] replay batch 240/2000 heap=1.7GiB
+2026-05-21T08:56:57.7780000Z ledger-worker-1  | [2026-05-21T08:58:40.136996Z] replay batch 260/2000 heap=1.8GiB
+2026-05-21T08:56:57.8670000Z ledger-worker-1  | [2026-05-21T08:58:41.458326Z] replay batch 280/2000 heap=1.9GiB
+2026-05-21T08:56:57.9180000Z ledger-worker-1  | [2026-05-21T08:58:42.736318Z] replay batch 300/2000 heap=2.0GiB
+2026-05-21T08:56:57.9420000Z ledger-worker-1  | [2026-05-21T08:58:43.972473Z] replay batch 320/2000 heap=2.0GiB
+2026-05-21T08:56:57.9580000Z ledger-worker-1  | [2026-05-21T08:58:44.823746Z] replay batch 340/2000 heap=2.1GiB
+2026-05-21T08:56:58.0210000Z ledger-worker-1  | [2026-05-21T08:58:45.669198Z] replay batch 360/2000 heap=2.2GiB
+2026-05-21T08:56:58.0480000Z ledger-worker-1  | [2026-05-21T08:58:46.593610Z] replay batch 380/2000 heap=2.2GiB
+2026-05-21T08:56:58.0610000Z ledger-worker-1  | [2026-05-21T08:58:47.509254Z] replay batch 400/2000 heap=2.3GiB
+2026-05-21T08:56:58.0840000Z ledger-worker-1  | [2026-05-21T08:58:48.860384Z] replay batch 420/2000 heap=2.4GiB
+2026-05-21T08:56:58.0870000Z ledger-worker-1  | [2026-05-21T08:58:49.909334Z] replay batch 440/2000 heap=2.4GiB
+2026-05-21T08:56:58.1520000Z ledger-worker-1  | [2026-05-21T08:58:50.920438Z] replay batch 460/2000 heap=2.5GiB
+2026-05-21T08:56:58.1610000Z ledger-worker-1  | [2026-05-21T08:58:51.964000Z] replay batch 480/2000 heap=2.6GiB
+2026-05-21T08:56:58.1760000Z ledger-worker-1  | [2026-05-21T08:58:53.312536Z] replay batch 500/2000 heap=2.6GiB
+2026-05-21T08:56:58.1820000Z ledger-worker-1  | [2026-05-21T08:58:54.385371Z] replay batch 520/2000 heap=2.7GiB
+2026-05-21T08:56:58.2630000Z ledger-worker-1  | [2026-05-21T08:58:55.514811Z] replay batch 540/2000 heap=2.8GiB
+2026-05-21T08:56:58.3070000Z ledger-worker-1  | [2026-05-21T08:58:56.591348Z] replay batch 560/2000 heap=2.9GiB
+2026-05-21T08:56:58.3100000Z ledger-worker-1  | [2026-05-21T08:58:57.481751Z] replay batch 580/2000 heap=2.9GiB
+2026-05-21T08:56:58.3830000Z ledger-worker-1  | [2026-05-21T08:58:58.818128Z] replay batch 600/2000 heap=3.0GiB
+2026-05-21T08:56:58.4400000Z ledger-worker-1  | [2026-05-21T08:58:59.724866Z] replay batch 620/2000 heap=3.1GiB
+2026-05-21T08:56:58.5090000Z ledger-worker-1  | [2026-05-21T08:59:00.723400Z] replay batch 640/2000 heap=3.1GiB
+2026-05-21T08:56:58.5140000Z ledger-worker-1  | [2026-05-21T08:59:01.815924Z] replay batch 660/2000 heap=3.2GiB
+2026-05-21T08:56:58.5710000Z ledger-worker-1  | [2026-05-21T08:59:03.103104Z] replay batch 680/2000 heap=3.3GiB
+2026-05-21T08:56:58.6310000Z ledger-worker-1  | [2026-05-21T08:59:04.116685Z] replay batch 700/2000 heap=3.3GiB
+2026-05-21T08:56:58.7050000Z ledger-worker-1  | [2026-05-21T08:59:05.304309Z] replay batch 720/2000 heap=3.4GiB
+2026-05-21T08:56:58.7690000Z ledger-worker-1  | [2026-05-21T08:59:06.184401Z] replay batch 740/2000 heap=3.5GiB
+2026-05-21T08:56:58.8080000Z ledger-worker-1  | [2026-05-21T08:59:06.999046Z] replay batch 760/2000 heap=3.6GiB
+2026-05-21T08:56:58.8620000Z ledger-worker-1  | [2026-05-21T08:59:08.252946Z] replay batch 780/2000 heap=3.6GiB
+2026-05-21T08:56:58.9400000Z ledger-worker-1  | [2026-05-21T08:59:09.649584Z] replay batch 800/2000 heap=3.7GiB
+2026-05-21T08:56:58.9890000Z ledger-worker-1  | [2026-05-21T08:59:11.028383Z] replay batch 820/2000 heap=3.8GiB
+2026-05-21T08:56:59.0140000Z ledger-worker-1  | [2026-05-21T08:59:12.162655Z] replay batch 840/2000 heap=3.8GiB
+2026-05-21T08:56:59.0600000Z ledger-worker-1  | [2026-05-21T08:59:13.289504Z] replay batch 860/2000 heap=3.9GiB
+2026-05-21T08:56:59.1370000Z ledger-worker-1  | [2026-05-21T08:59:14.424074Z] replay batch 880/2000 heap=4.0GiB
+2026-05-21T08:56:59.1500000Z ledger-worker-1  | [2026-05-21T08:59:15.296563Z] replay batch 900/2000 heap=4.0GiB
+2026-05-21T08:56:59.1550000Z ledger-worker-1  | [2026-05-21T08:59:16.137006Z] replay batch 920/2000 heap=4.1GiB
+2026-05-21T08:56:59.1680000Z ledger-worker-1  | [2026-05-21T08:59:17.175163Z] replay batch 940/2000 heap=4.2GiB
+2026-05-21T08:56:59.2420000Z ledger-worker-1  | [2026-05-21T08:59:18.318051Z] replay batch 960/2000 heap=4.3GiB
+2026-05-21T08:56:59.3170000Z ledger-worker-1  | [2026-05-21T08:59:19.168894Z] replay batch 980/2000 heap=4.3GiB
+2026-05-21T08:56:59.3310000Z ledger-worker-1  | [2026-05-21T08:59:20.109591Z] replay batch 1000/2000 heap=4.4GiB
+2026-05-21T08:56:59.3520000Z ledger-worker-1  | [2026-05-21T08:59:21.482413Z] replay batch 1020/2000 heap=4.5GiB
+2026-05-21T08:56:59.3650000Z ledger-worker-1  | [2026-05-21T08:59:22.746138Z] replay batch 1040/2000 heap=4.5GiB
+2026-05-21T08:56:59.4280000Z ledger-worker-1  | [2026-05-21T08:59:23.858664Z] replay batch 1060/2000 heap=4.6GiB
+2026-05-21T08:56:59.4800000Z ledger-worker-1  | [2026-05-21T08:59:24.779395Z] replay batch 1080/2000 heap=4.7GiB
+2026-05-21T08:56:59.5040000Z ledger-worker-1  | [2026-05-21T08:59:25.773195Z] replay batch 1100/2000 heap=4.7GiB
+2026-05-21T08:56:59.5660000Z ledger-worker-1  | [2026-05-21T08:59:27.007055Z] replay batch 1120/2000 heap=4.8GiB
+2026-05-21T08:56:59.5970000Z ledger-worker-1  | [2026-05-21T08:59:27.992370Z] replay batch 1140/2000 heap=4.9GiB
+2026-05-21T08:56:59.6410000Z ledger-worker-1  | [2026-05-21T08:59:28.990457Z] replay batch 1160/2000 heap=5.0GiB
+2026-05-21T08:56:59.7180000Z ledger-worker-1  | [2026-05-21T08:59:29.809189Z] replay batch 1180/2000 heap=5.0GiB
+2026-05-21T08:56:59.7540000Z ledger-worker-1  | [2026-05-21T08:59:30.684767Z] replay batch 1200/2000 heap=5.1GiB
+2026-05-21T08:56:59.7900000Z ledger-worker-1  | [2026-05-21T08:59:31.922225Z] replay batch 1220/2000 heap=5.2GiB
+2026-05-21T08:56:59.8010000Z ledger-worker-1  | [2026-05-21T08:59:32.792198Z] replay batch 1240/2000 heap=5.2GiB
+2026-05-21T08:56:59.8230000Z ledger-worker-1  | [2026-05-21T08:59:33.625015Z] replay batch 1260/2000 heap=5.3GiB
+2026-05-21T08:56:59.8820000Z ledger-worker-1  | [2026-05-21T08:59:34.522295Z] replay batch 1280/2000 heap=5.4GiB
+2026-05-21T08:56:59.8910000Z ledger-worker-1  | [2026-05-21T08:59:35.522325Z] replay batch 1300/2000 heap=5.5GiB
+2026-05-21T08:56:59.9270000Z ledger-worker-1  | [2026-05-21T08:59:36.664178Z] replay batch 1320/2000 heap=5.5GiB
+2026-05-21T08:57:00.0170000Z ledger-worker-1  | [2026-05-21T08:59:37.542370Z] replay batch 1340/2000 heap=5.6GiB
+2026-05-21T08:57:00.0590000Z ledger-worker-1  | [2026-05-21T08:59:38.543510Z] replay batch 1360/2000 heap=5.7GiB
+2026-05-21T08:57:00.0720000Z ledger-worker-1  | [2026-05-21T08:59:39.612386Z] replay batch 1380/2000 heap=5.7GiB
+2026-05-21T08:57:00.1010000Z ledger-worker-1  | [2026-05-21T08:59:40.609225Z] replay batch 1400/2000 heap=5.8GiB
+2026-05-21T08:57:00.1550000Z ledger-worker-1  | [2026-05-21T08:59:41.705723Z] replay batch 1420/2000 heap=5.9GiB
+2026-05-21T08:57:00.1580000Z ledger-worker-1  | [2026-05-21T08:59:42.694739Z] replay batch 1440/2000 heap=5.9GiB
+2026-05-21T08:57:00.1630000Z ledger-worker-1  | [2026-05-21T08:59:44.048403Z] replay batch 1460/2000 heap=6.0GiB
+2026-05-21T08:57:00.2130000Z ledger-worker-1  | [2026-05-21T08:59:44.915024Z] replay batch 1480/2000 heap=6.1GiB
+2026-05-21T08:57:00.2250000Z ledger-worker-1  | [2026-05-21T08:59:46.077126Z] replay batch 1500/2000 heap=6.2GiB
+2026-05-21T08:57:00.2820000Z ledger-worker-1  | [2026-05-21T08:59:47.258061Z] replay batch 1520/2000 heap=6.2GiB
+2026-05-21T08:57:00.3650000Z ledger-worker-1  | [2026-05-21T08:59:48.596615Z] replay batch 1540/2000 heap=6.3GiB
+2026-05-21T08:57:00.4260000Z ledger-worker-1  | [2026-05-21T08:59:49.906414Z] replay batch 1560/2000 heap=6.4GiB
+2026-05-21T08:57:00.4400000Z ledger-worker-1  | [2026-05-21T08:59:51.180717Z] replay batch 1580/2000 heap=6.4GiB
+2026-05-21T08:57:00.5010000Z ledger-worker-1  | [2026-05-21T08:59:52.423757Z] replay batch 1600/2000 heap=6.5GiB
+2026-05-21T08:57:00.5370000Z ledger-worker-1  | [2026-05-21T08:59:53.742122Z] replay batch 1620/2000 heap=6.6GiB
+2026-05-21T08:57:00.5660000Z ledger-worker-1  | [2026-05-21T08:59:54.698834Z] replay batch 1640/2000 heap=6.6GiB
+2026-05-21T08:57:00.6380000Z ledger-worker-1  | [2026-05-21T08:59:55.529751Z] replay batch 1660/2000 heap=6.7GiB
+2026-05-21T08:57:00.7190000Z ledger-worker-1  | [2026-05-21T08:59:56.725445Z] replay batch 1680/2000 heap=6.8GiB
+2026-05-21T08:57:00.7940000Z ledger-worker-1  | [2026-05-21T08:59:58.107827Z] replay batch 1700/2000 heap=6.9GiB
+2026-05-21T08:57:00.8350000Z ledger-worker-1  | [2026-05-21T08:59:59.468783Z] replay batch 1720/2000 heap=6.9GiB
+2026-05-21T08:57:00.8450000Z ledger-worker-1  | [2026-05-21T09:00:00.454964Z] replay batch 1740/2000 heap=7.0GiB
+2026-05-21T08:57:00.9310000Z ledger-worker-1  | [2026-05-21T09:00:01.852652Z] replay batch 1760/2000 heap=7.1GiB
+2026-05-21T08:57:01.0200000Z ledger-worker-1  | [2026-05-21T09:00:02.800726Z] replay batch 1780/2000 heap=7.1GiB
+2026-05-21T08:57:01.0360000Z ledger-worker-1  | [2026-05-21T09:00:04.182940Z] replay batch 1800/2000 heap=7.1GiB
+2026-05-21T08:57:01.1010000Z ledger-worker-1  | [2026-05-21T09:00:05.051245Z] replay batch 1820/2000 heap=7.1GiB
+2026-05-21T08:57:01.1780000Z ledger-worker-1  | [2026-05-21T09:00:06.217344Z] replay batch 1840/2000 heap=7.1GiB
+2026-05-21T08:57:01.2040000Z ledger-worker-1  | [2026-05-21T09:00:07.040812Z] replay batch 1860/2000 heap=7.1GiB
+2026-05-21T08:57:01.2160000Z ledger-worker-1  | [2026-05-21T09:00:08.327745Z] replay batch 1880/2000 heap=7.1GiB
+2026-05-21T08:57:01.2950000Z ledger-worker-1 exited with code 137
+2026-05-21T08:57:01.3530000Z Aborting on container exit...
+2026-05-21T08:57:01.3950000Z Stopping checkout-postgres-1  ... done
+2026-05-21T08:57:01.4350000Z /home/runner/work/_temp/e2144a89-a88a-4600-8a2e-b195d2549490.sh: line 3:  3184 Killed                  pytest -q tests/integration --durations=20
+2026-05-21T08:57:01.4600000Z ##[error]Process completed with exit code 137.
+2026-05-21T08:57:01.5040000Z Post job cleanup.
+2026-05-21T08:57:01.5510000Z ##[group]Post Run actions/cache@v4.1.2
+2026-05-21T08:57:01.6170000Z Post cache
+2026-05-21T08:57:01.6550000Z /usr/bin/tar --posix -acf cache.tzst --exclude cache.tzst -P -C /home/runner/work/checkout-service/checkout-service --files-from manifest.txt
+2026-05-21T08:57:01.7060000Z Cache saved successfully
+2026-05-21T08:57:01.7930000Z Cache saved with key: node-cache-Linux-x64-9f2c1d
+2026-05-21T08:57:01.8070000Z ##[endgroup]
+2026-05-21T08:57:01.8870000Z ##[group]Post Run actions/upload-artifact@v4.4.3
+2026-05-21T08:57:01.9130000Z With the provided path, there will be 1 file uploaded
+2026-05-21T08:57:01.9870000Z Artifact name is valid!
+2026-05-21T08:57:02.0700000Z ##[warning]No files were found with the provided path: junit.xml. No artifacts will be uploaded.
+2026-05-21T08:57:02.1550000Z ##[endgroup]
+2026-05-21T08:57:02.1910000Z ##[group]Post Run actions/checkout@v4.2.2
+2026-05-21T08:57:02.2350000Z /usr/bin/git version
+2026-05-21T08:57:02.2520000Z Temporarily overriding HOME='/home/runner/work/_temp/8c1a' before making global git config changes
+2026-05-21T08:57:02.3270000Z Removing extraheader from the repository
+2026-05-21T08:57:02.3330000Z ##[endgroup]
+2026-05-21T08:57:02.3810000Z Cleaning up orphan processes
+2026-05-21T08:57:02.4500000Z Evaluate and set job outputs
+2026-05-21T08:57:02.4910000Z Job integration completed with result: Failure
