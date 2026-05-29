@@ -1,0 +1,109 @@
+2026-05-15T14:26:41.0220000Z Current runner version: '2.331.0'
+2026-05-15T14:26:41.0420000Z ##[group]Runner Image Provisioner
+2026-05-15T14:26:41.1170000Z 2.0.451.1
+2026-05-15T14:26:41.1410000Z ##[endgroup]
+2026-05-15T14:26:41.1920000Z ##[group]Operating System
+2026-05-15T14:26:41.2050000Z macOS
+2026-05-15T14:26:41.2120000Z 14.7.2
+2026-05-15T14:26:41.2260000Z 23H311
+2026-05-15T14:26:41.2640000Z ##[endgroup]
+2026-05-15T14:26:41.2720000Z ##[group]Runner Image
+2026-05-15T14:26:41.3130000Z Image: macos-14
+2026-05-15T14:26:41.3340000Z Version: 20260504.1.0
+2026-05-15T14:26:41.3810000Z ##[endgroup]
+2026-05-15T14:26:41.3980000Z ##[group]GITHUB_TOKEN Permissions
+2026-05-15T14:26:41.4600000Z Contents: read
+2026-05-15T14:26:41.5310000Z Packages: read
+2026-05-15T14:26:41.6140000Z ##[endgroup]
+2026-05-15T14:26:41.6350000Z Secret source: Actions
+2026-05-15T14:26:41.7060000Z Prepare workflow directory
+2026-05-15T14:26:41.7370000Z Prepare all required actions
+2026-05-15T14:26:41.7540000Z Getting action download info
+2026-05-15T14:26:41.8050000Z ##[group]Run actions/checkout@v4.2.2
+2026-05-15T14:26:41.8220000Z with:
+2026-05-15T14:26:41.8440000Z   fetch-depth: 0
+2026-05-15T14:26:41.9100000Z   repository: ridgeline/checkout-service
+2026-05-15T14:26:41.9620000Z ##[endgroup]
+2026-05-15T14:26:42.0240000Z Syncing repository: ridgeline/checkout-service
+2026-05-15T14:26:42.0930000Z /usr/bin/git version
+2026-05-15T14:26:42.1010000Z git version 2.51.0
+2026-05-15T14:26:42.1280000Z ##[group]Determining the checkout info
+2026-05-15T14:26:42.1800000Z ##[endgroup]
+2026-05-15T14:26:42.2130000Z Fetching the repository
+2026-05-15T14:26:42.2370000Z /usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/main*:refs/remotes/origin/main*
+2026-05-15T14:26:42.2510000Z ##[group]Checking out the ref
+2026-05-15T14:26:42.3200000Z /usr/bin/git checkout --progress --force refs/remotes/origin/main
+2026-05-15T14:26:42.3810000Z HEAD is now at ae56b8f chore: rebase onto main
+2026-05-15T14:26:42.4440000Z ##[endgroup]
+2026-05-15T14:26:42.4610000Z ##[group]Run xcodebuild -scheme Checkout -destination 'platform=iOS Simulator,name=iPhone 16' test
+2026-05-15T14:26:42.4670000Z xcodebuild -scheme Checkout -destination 'platform=iOS Simulator,name=iPhone 16' test
+2026-05-15T14:26:42.5420000Z shell: /usr/bin/bash -e {0}
+2026-05-15T14:26:42.5870000Z env:
+2026-05-15T14:26:42.6450000Z   CI: true
+2026-05-15T14:26:42.6670000Z   FORCE_COLOR: 0
+2026-05-15T14:26:42.7300000Z ##[endgroup]
+2026-05-15T14:26:42.7600000Z Command line invocation:
+2026-05-15T14:26:42.7870000Z     /Applications/Xcode_16.2.app/Contents/Developer/usr/bin/xcodebuild -scheme Checkout -destination platform=iOS Simulator,name=iPhone 16 test
+2026-05-15T14:26:42.8750000Z 
+2026-05-15T14:26:42.9470000Z note: Building targets in dependency order
+2026-05-15T14:26:42.9920000Z Testing started
+2026-05-15T14:26:43.0600000Z Test Case '-[CheckoutUITests test00]' passed (3.861 seconds).
+2026-05-15T14:26:43.1080000Z Test Case '-[CheckoutUITests test01]' passed (7.200 seconds).
+2026-05-15T14:26:43.1460000Z Test Case '-[CheckoutUITests test02]' passed (1.856 seconds).
+2026-05-15T14:26:43.1850000Z Test Case '-[CheckoutUITests test03]' passed (1.174 seconds).
+2026-05-15T14:26:43.2340000Z Test Case '-[CheckoutUITests test04]' passed (0.466 seconds).
+2026-05-15T14:26:43.2550000Z Test Case '-[CheckoutUITests test05]' passed (2.424 seconds).
+2026-05-15T14:26:43.3370000Z Test Case '-[CheckoutUITests test06]' passed (0.629 seconds).
+2026-05-15T14:26:43.3630000Z Test Case '-[CheckoutUITests test07]' passed (3.606 seconds).
+2026-05-15T14:26:43.3700000Z Test Case '-[CheckoutUITests test08]' passed (2.067 seconds).
+2026-05-15T14:26:43.4540000Z Test Case '-[CheckoutUITests test09]' passed (0.451 seconds).
+2026-05-15T14:26:43.4900000Z Test Case '-[CheckoutUITests test10]' passed (7.253 seconds).
+2026-05-15T14:26:43.5060000Z Test Case '-[CheckoutUITests test11]' passed (1.836 seconds).
+2026-05-15T14:26:43.5110000Z Test Case '-[PaymentSheetTests test00]' passed (5.243 seconds).
+2026-05-15T14:26:43.5230000Z Test Case '-[PaymentSheetTests test01]' passed (7.349 seconds).
+2026-05-15T14:26:43.5870000Z Test Case '-[PaymentSheetTests test02]' passed (2.110 seconds).
+2026-05-15T14:26:43.6710000Z Test Case '-[PaymentSheetTests test03]' passed (6.502 seconds).
+2026-05-15T14:26:43.7170000Z Test Case '-[PaymentSheetTests test04]' passed (1.834 seconds).
+2026-05-15T14:26:43.7680000Z Test Case '-[PaymentSheetTests test05]' passed (1.446 seconds).
+2026-05-15T14:26:43.8110000Z Test Case '-[PaymentSheetTests test06]' passed (0.646 seconds).
+2026-05-15T14:26:43.8180000Z Test Case '-[PaymentSheetTests test07]' passed (7.034 seconds).
+2026-05-15T14:26:43.8680000Z Test Case '-[PaymentSheetTests test08]' passed (2.153 seconds).
+2026-05-15T14:26:43.9190000Z Test Case '-[PaymentSheetTests test09]' passed (2.681 seconds).
+2026-05-15T14:26:43.9260000Z Test Case '-[PaymentSheetTests test10]' passed (6.427 seconds).
+2026-05-15T14:26:43.9950000Z Test Case '-[PaymentSheetTests test11]' passed (1.612 seconds).
+2026-05-15T14:26:44.0060000Z Test Case '-[LedgerSyncTests test00]' passed (6.332 seconds).
+2026-05-15T14:26:44.0960000Z Test Case '-[LedgerSyncTests test01]' passed (2.664 seconds).
+2026-05-15T14:26:44.1800000Z Test Case '-[LedgerSyncTests test02]' passed (4.118 seconds).
+2026-05-15T14:26:44.2010000Z Test Case '-[LedgerSyncTests test03]' passed (6.056 seconds).
+2026-05-15T14:26:44.2370000Z Test Case '-[LedgerSyncTests test04]' passed (7.320 seconds).
+2026-05-15T14:26:44.2880000Z Test Case '-[LedgerSyncTests test05]' passed (1.987 seconds).
+2026-05-15T14:26:44.3470000Z Test Case '-[LedgerSyncTests test06]' passed (7.747 seconds).
+2026-05-15T14:26:44.4070000Z Test Case '-[LedgerSyncTests test07]' passed (5.327 seconds).
+2026-05-15T14:26:44.4390000Z Test Case '-[LedgerSyncTests test08]' passed (2.172 seconds).
+2026-05-15T14:26:44.4590000Z Test Case '-[LedgerSyncTests test09]' passed (5.443 seconds).
+2026-05-15T14:26:44.4930000Z Test Case '-[LedgerSyncTests test10]' passed (3.181 seconds).
+2026-05-15T14:26:44.5720000Z Test Case '-[LedgerSyncTests test11]' passed (1.481 seconds).
+2026-05-15T14:26:44.5980000Z Test Case '-[LedgerSyncTests testResumesAfterBackground]' started.
+2026-05-15T14:26:44.6610000Z ##[error]The job running on runner GitHub Actions 39 has exceeded the maximum execution time of 45 minutes.
+2026-05-15T14:26:44.6790000Z ##[error]The operation was canceled.
+2026-05-15T14:26:44.7270000Z ##[error]Process completed with exit code 1.
+2026-05-15T14:26:44.7470000Z Post job cleanup.
+2026-05-15T14:26:44.8220000Z ##[group]Post Run actions/cache@v4.1.2
+2026-05-15T14:26:44.9060000Z Post cache
+2026-05-15T14:26:44.9210000Z /usr/bin/tar --posix -acf cache.tzst --exclude cache.tzst -P -C /home/runner/work/checkout-service/checkout-service --files-from manifest.txt
+2026-05-15T14:26:44.9560000Z Cache saved successfully
+2026-05-15T14:26:44.9730000Z Cache saved with key: node-cache-Linux-x64-9f2c1d
+2026-05-15T14:26:45.0440000Z ##[endgroup]
+2026-05-15T14:26:45.0690000Z ##[group]Post Run actions/upload-artifact@v4.4.3
+2026-05-15T14:26:45.0900000Z With the provided path, there will be 1 file uploaded
+2026-05-15T14:26:45.1120000Z Artifact name is valid!
+2026-05-15T14:26:45.1630000Z ##[warning]No files were found with the provided path: junit.xml. No artifacts will be uploaded.
+2026-05-15T14:26:45.1740000Z ##[endgroup]
+2026-05-15T14:26:45.1770000Z ##[group]Post Run actions/checkout@v4.2.2
+2026-05-15T14:26:45.2400000Z /usr/bin/git version
+2026-05-15T14:26:45.3120000Z Temporarily overriding HOME='/home/runner/work/_temp/8c1a' before making global git config changes
+2026-05-15T14:26:45.4000000Z Removing extraheader from the repository
+2026-05-15T14:26:45.4260000Z ##[endgroup]
+2026-05-15T14:26:45.5130000Z Cleaning up orphan processes
+2026-05-15T14:26:45.6000000Z Evaluate and set job outputs
+2026-05-15T14:26:45.6090000Z Job ui-tests-ios completed with result: Failure
