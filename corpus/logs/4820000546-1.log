@@ -1,0 +1,95 @@
+2026-06-02T13:54:52.0230000Z Current runner version: '2.331.0'
+2026-06-02T13:54:52.0650000Z ##[group]Runner Image Provisioner
+2026-06-02T13:54:52.0870000Z 2.0.451.1
+2026-06-02T13:54:52.1670000Z ##[endgroup]
+2026-06-02T13:54:52.1820000Z ##[group]Operating System
+2026-06-02T13:54:52.2620000Z Ubuntu
+2026-06-02T13:54:52.2790000Z 22.04.5
+2026-06-02T13:54:52.3630000Z LTS
+2026-06-02T13:54:52.4210000Z ##[endgroup]
+2026-06-02T13:54:52.4620000Z ##[group]Runner Image
+2026-06-02T13:54:52.5300000Z Image: ubuntu-22.04
+2026-06-02T13:54:52.5480000Z Version: 20260504.1.0
+2026-06-02T13:54:52.5810000Z ##[endgroup]
+2026-06-02T13:54:52.6530000Z ##[group]GITHUB_TOKEN Permissions
+2026-06-02T13:54:52.7220000Z Contents: read
+2026-06-02T13:54:52.7500000Z Packages: read
+2026-06-02T13:54:52.8170000Z ##[endgroup]
+2026-06-02T13:54:52.8810000Z Secret source: Actions
+2026-06-02T13:54:52.9400000Z Prepare workflow directory
+2026-06-02T13:54:53.0270000Z Prepare all required actions
+2026-06-02T13:54:53.0490000Z Getting action download info
+2026-06-02T13:54:53.1330000Z ##[group]Run actions/checkout@v4.2.2
+2026-06-02T13:54:53.1390000Z with:
+2026-06-02T13:54:53.1890000Z   fetch-depth: 0
+2026-06-02T13:54:53.2240000Z   repository: ridgeline/checkout-service
+2026-06-02T13:54:53.3080000Z ##[endgroup]
+2026-06-02T13:54:53.3220000Z Syncing repository: ridgeline/checkout-service
+2026-06-02T13:54:53.4050000Z /usr/bin/git version
+2026-06-02T13:54:53.4310000Z git version 2.51.0
+2026-06-02T13:54:53.4520000Z ##[group]Determining the checkout info
+2026-06-02T13:54:53.5060000Z ##[endgroup]
+2026-06-02T13:54:53.5800000Z Fetching the repository
+2026-06-02T13:54:53.6410000Z /usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/feat/refund-proration*:refs/remotes/origin/feat/refund-proration*
+2026-06-02T13:54:53.6670000Z ##[group]Checking out the ref
+2026-06-02T13:54:53.7370000Z /usr/bin/git checkout --progress --force refs/remotes/origin/feat/refund-proration
+2026-06-02T13:54:53.7400000Z HEAD is now at ae6894f chore: rebase onto feat/refund-proration
+2026-06-02T13:54:53.7520000Z ##[endgroup]
+2026-06-02T13:54:53.8160000Z ##[group]Run pytest -q --junitxml=junit.xml
+2026-06-02T13:54:53.8510000Z pytest -q --junitxml=junit.xml
+2026-06-02T13:54:53.9110000Z shell: /usr/bin/bash -e {0}
+2026-06-02T13:54:53.9930000Z env:
+2026-06-02T13:54:54.0450000Z   CI: true
+2026-06-02T13:54:54.0990000Z   FORCE_COLOR: 0
+2026-06-02T13:54:54.1840000Z ##[endgroup]
+2026-06-02T13:54:54.2700000Z ============================= test session starts ==============================
+2026-06-02T13:54:54.3000000Z platform linux -- Python 3.11.9, pytest-8.2.2, pluggy-1.5.0
+2026-06-02T13:54:54.3630000Z rootdir: /home/runner/work/checkout-service/checkout-service
+2026-06-02T13:54:54.4140000Z configfile: pyproject.toml
+2026-06-02T13:54:54.4700000Z plugins: cov-5.0.0, anyio-4.4.0
+2026-06-02T13:54:54.5410000Z collected 410 items
+2026-06-02T13:54:54.5950000Z 
+2026-06-02T13:54:54.6340000Z tests/test_api.py .......................................  [ 14%]
+2026-06-02T13:54:54.6390000Z tests/test_auth.py ........................                [ 28%]
+2026-06-02T13:54:54.6510000Z tests/test_billing.py ....F.................................... [ 42%]
+2026-06-02T13:54:54.7390000Z tests/test_catalog.py .............................        [ 56%]
+2026-06-02T13:54:54.7970000Z tests/test_ledger.py ............................................ [ 70%]
+2026-06-02T13:54:54.8580000Z tests/test_scheduler.py ................................................ [ 84%]
+2026-06-02T13:54:54.8620000Z tests/test_webhooks.py ...........................         [ 98%]
+2026-06-02T13:54:54.9470000Z 
+2026-06-02T13:54:55.0250000Z =================================== FAILURES ===================================
+2026-06-02T13:54:55.0670000Z ___________________ test_prorated_refund[monthly-mid-cycle] ____________________
+2026-06-02T13:54:55.1220000Z 
+2026-06-02T13:54:55.1670000Z     def test_prorated_refund(plan: Plan, clock: FakeClock) -> None:
+2026-06-02T13:54:55.1820000Z         subscription = subscribe(plan, at=clock.now())
+2026-06-02T13:54:55.2010000Z         clock.advance(days=14)
+2026-06-02T13:54:55.2130000Z         refund = cancel(subscription, at=clock.now())
+2026-06-02T13:54:55.2160000Z >       assert refund.amount == Money("49.50", "EUR")
+2026-06-02T13:54:55.2480000Z E       AssertionError: assert Money('45.00', 'EUR') == Money('49.50', 'EUR')
+2026-06-02T13:54:55.2640000Z E        +  where Money('45.00', 'EUR') = Refund(id=cb2a114a8478).amount
+2026-06-02T13:54:55.3190000Z 
+2026-06-02T13:54:55.4000000Z tests/test_billing.py:118: AssertionError
+2026-06-02T13:54:55.4350000Z =========================== short test summary info ============================
+2026-06-02T13:54:55.4640000Z FAILED tests/test_billing.py::test_prorated_refund[monthly-mid-cycle] - AssertionError: assert Money('45.00', 'EUR') == Money('49.50', 'EUR')
+2026-06-02T13:54:55.4910000Z ========================= 1 failed, 409 passed in 183.49s ==========================
+2026-06-02T13:54:55.5340000Z ##[error]Process completed with exit code 1.
+2026-06-02T13:54:55.5760000Z Post job cleanup.
+2026-06-02T13:54:55.6340000Z ##[group]Post Run actions/cache@v4.1.2
+2026-06-02T13:54:55.7230000Z Post cache
+2026-06-02T13:54:55.8010000Z /usr/bin/tar --posix -acf cache.tzst --exclude cache.tzst -P -C /home/runner/work/checkout-service/checkout-service --files-from manifest.txt
+2026-06-02T13:54:55.8270000Z Cache saved successfully
+2026-06-02T13:54:55.9030000Z Cache saved with key: node-cache-Linux-x64-9f2c1d
+2026-06-02T13:54:55.9690000Z ##[endgroup]
+2026-06-02T13:54:56.0320000Z ##[group]Post Run actions/upload-artifact@v4.4.3
+2026-06-02T13:54:56.1000000Z With the provided path, there will be 1 file uploaded
+2026-06-02T13:54:56.1520000Z Artifact name is valid!
+2026-06-02T13:54:56.1690000Z ##[warning]No files were found with the provided path: junit.xml. No artifacts will be uploaded.
+2026-06-02T13:54:56.1780000Z ##[endgroup]
+2026-06-02T13:54:56.1840000Z ##[group]Post Run actions/checkout@v4.2.2
+2026-06-02T13:54:56.2440000Z /usr/bin/git version
+2026-06-02T13:54:56.2490000Z Temporarily overriding HOME='/home/runner/work/_temp/8c1a' before making global git config changes
+2026-06-02T13:54:56.2790000Z Removing extraheader from the repository
+2026-06-02T13:54:56.3550000Z ##[endgroup]
+2026-06-02T13:54:56.4060000Z Cleaning up orphan processes
+2026-06-02T13:54:56.4880000Z Evaluate and set job outputs
+2026-06-02T13:54:56.5350000Z Job unit completed with result: Failure
