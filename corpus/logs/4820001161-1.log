@@ -1,0 +1,93 @@
+2026-05-15T09:39:14.0850000Z Current runner version: '2.331.0'
+2026-05-15T09:39:14.1600000Z ##[group]Runner Image Provisioner
+2026-05-15T09:39:14.1630000Z 2.0.451.1
+2026-05-15T09:39:14.2190000Z ##[endgroup]
+2026-05-15T09:39:14.2770000Z ##[group]Operating System
+2026-05-15T09:39:14.3610000Z Ubuntu
+2026-05-15T09:39:14.4260000Z 22.04.5
+2026-05-15T09:39:14.4380000Z LTS
+2026-05-15T09:39:14.4930000Z ##[endgroup]
+2026-05-15T09:39:14.5510000Z ##[group]Runner Image
+2026-05-15T09:39:14.6220000Z Image: ubuntu-22.04
+2026-05-15T09:39:14.6800000Z Version: 20260504.1.0
+2026-05-15T09:39:14.7680000Z ##[endgroup]
+2026-05-15T09:39:14.7920000Z ##[group]GITHUB_TOKEN Permissions
+2026-05-15T09:39:14.8680000Z Contents: read
+2026-05-15T09:39:14.9200000Z Packages: read
+2026-05-15T09:39:14.9630000Z ##[endgroup]
+2026-05-15T09:39:15.0070000Z Secret source: Actions
+2026-05-15T09:39:15.0450000Z Prepare workflow directory
+2026-05-15T09:39:15.0880000Z Prepare all required actions
+2026-05-15T09:39:15.1770000Z Getting action download info
+2026-05-15T09:39:15.2360000Z ##[group]Run actions/checkout@v4.2.2
+2026-05-15T09:39:15.2400000Z with:
+2026-05-15T09:39:15.3250000Z   fetch-depth: 0
+2026-05-15T09:39:15.3630000Z   repository: ridgeline/checkout-service
+2026-05-15T09:39:15.4090000Z ##[endgroup]
+2026-05-15T09:39:15.4250000Z Syncing repository: ridgeline/checkout-service
+2026-05-15T09:39:15.4900000Z /usr/bin/git version
+2026-05-15T09:39:15.5400000Z git version 2.51.0
+2026-05-15T09:39:15.5510000Z ##[group]Determining the checkout info
+2026-05-15T09:39:15.5550000Z ##[endgroup]
+2026-05-15T09:39:15.6080000Z Fetching the repository
+2026-05-15T09:39:15.6410000Z /usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/fix/lease-renewal*:refs/remotes/origin/fix/lease-renewal*
+2026-05-15T09:39:15.7250000Z ##[group]Checking out the ref
+2026-05-15T09:39:15.7800000Z /usr/bin/git checkout --progress --force refs/remotes/origin/fix/lease-renewal
+2026-05-15T09:39:15.8540000Z HEAD is now at 1da52b2 chore: rebase onto fix/lease-renewal
+2026-05-15T09:39:15.8640000Z ##[endgroup]
+2026-05-15T09:39:15.8690000Z ##[group]Run pytest -q --junitxml=junit.xml
+2026-05-15T09:39:15.9450000Z pytest -q --junitxml=junit.xml
+2026-05-15T09:39:15.9790000Z shell: /usr/bin/bash -e {0}
+2026-05-15T09:39:16.0200000Z env:
+2026-05-15T09:39:16.1030000Z   CI: true
+2026-05-15T09:39:16.1870000Z   FORCE_COLOR: 0
+2026-05-15T09:39:16.2520000Z ##[endgroup]
+2026-05-15T09:39:16.3010000Z ============================= test session starts ==============================
+2026-05-15T09:39:16.3060000Z platform linux -- Python 3.11.9, pytest-8.2.2, pluggy-1.5.0
+2026-05-15T09:39:16.3490000Z rootdir: /home/runner/work/checkout-service/checkout-service
+2026-05-15T09:39:16.3550000Z configfile: pyproject.toml
+2026-05-15T09:39:16.4390000Z plugins: cov-5.0.0, anyio-4.4.0
+2026-05-15T09:39:16.4880000Z 
+2026-05-15T09:39:16.5750000Z tests/test_api.py .....................................    [ 14%]
+2026-05-15T09:39:16.6380000Z tests/test_auth.py ................................        [ 28%]
+2026-05-15T09:39:16.7240000Z tests/test_billing.py ..............................       [ 42%]
+2026-05-15T09:39:16.7720000Z tests/test_catalog.py ........................................ [ 56%]
+2026-05-15T09:39:16.7820000Z tests/test_ledger.py ......................................... [ 70%]
+2026-05-15T09:39:16.8330000Z tests/test_scheduler.py ...........F.............................. [ 84%]
+2026-05-15T09:39:16.9210000Z tests/test_webhooks.py ................................... [ 98%]
+2026-05-15T09:39:17.0100000Z 
+2026-05-15T09:39:17.0610000Z =================================== FAILURES ===================================
+2026-05-15T09:39:17.1510000Z __________________________ test_lease_renewal_extends __________________________
+2026-05-15T09:39:17.1550000Z 
+2026-05-15T09:39:17.1980000Z     def test_lease_renewal_extends(scheduler: Scheduler) -> None:
+2026-05-15T09:39:17.2870000Z         lease = scheduler.acquire('ledger-replay', ttl=timedelta(seconds=30))
+2026-05-15T09:39:17.2930000Z         deadline = lease.expires_at
+2026-05-15T09:39:17.3000000Z         scheduler.renew(lease)
+2026-05-15T09:39:17.3580000Z >       assert lease.expires_at > deadline
+2026-05-15T09:39:17.4030000Z E       AssertionError: assert datetime(2026, 5, 15, 9, 42, 3, 432299) > datetime(2026, 5, 15, 9, 42, 3, 432306)
+2026-05-15T09:39:17.4230000Z 
+2026-05-15T09:39:17.4340000Z tests/test_scheduler.py:64: AssertionError
+2026-05-15T09:39:17.4500000Z =========================== short test summary info ============================
+2026-05-15T09:39:17.4960000Z FAILED tests/test_scheduler.py::test_lease_renewal_extends - AssertionError: assert datetime(2026, 5, 15, 9, 42, 3, 432299) > datetime(2026, 5, 15, 9, 42, 3, 432306)
+2026-05-15T09:39:17.5370000Z ========================= 1 failed, 409 passed in 276.52s ==========================
+2026-05-15T09:39:17.6120000Z ##[error]Process completed with exit code 1.
+2026-05-15T09:39:17.6250000Z Post job cleanup.
+2026-05-15T09:39:17.6330000Z ##[group]Post Run actions/cache@v4.1.2
+2026-05-15T09:39:17.6840000Z Post cache
+2026-05-15T09:39:17.7590000Z /usr/bin/tar --posix -acf cache.tzst --exclude cache.tzst -P -C /home/runner/work/checkout-service/checkout-service --files-from manifest.txt
+2026-05-15T09:39:17.7660000Z Cache saved successfully
+2026-05-15T09:39:17.7810000Z Cache saved with key: node-cache-Linux-x64-9f2c1d
+2026-05-15T09:39:17.8460000Z ##[endgroup]
+2026-05-15T09:39:17.9320000Z ##[group]Post Run actions/upload-artifact@v4.4.3
+2026-05-15T09:39:17.9440000Z With the provided path, there will be 1 file uploaded
+2026-05-15T09:39:17.9730000Z Artifact name is valid!
+2026-05-15T09:39:18.0540000Z ##[warning]No files were found with the provided path: junit.xml. No artifacts will be uploaded.
+2026-05-15T09:39:18.0670000Z ##[endgroup]
+2026-05-15T09:39:18.0820000Z ##[group]Post Run actions/checkout@v4.2.2
+2026-05-15T09:39:18.1220000Z /usr/bin/git version
+2026-05-15T09:39:18.1530000Z Temporarily overriding HOME='/home/runner/work/_temp/8c1a' before making global git config changes
+2026-05-15T09:39:18.2420000Z Removing extraheader from the repository
+2026-05-15T09:39:18.2860000Z ##[endgroup]
+2026-05-15T09:39:18.3490000Z Cleaning up orphan processes
+2026-05-15T09:39:18.3980000Z Evaluate and set job outputs
+2026-05-15T09:39:18.4510000Z Job unit completed with result: Failure
