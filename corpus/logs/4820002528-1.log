@@ -1,0 +1,79 @@
+2026-05-17T13:08:56.0560000Z Current runner version: '2.331.0'
+2026-05-17T13:08:56.1100000Z ##[group]Runner Image Provisioner
+2026-05-17T13:08:56.1520000Z 2.0.451.1
+2026-05-17T13:08:56.1890000Z ##[endgroup]
+2026-05-17T13:08:56.2310000Z ##[group]Operating System
+2026-05-17T13:08:56.2630000Z Ubuntu
+2026-05-17T13:08:56.3410000Z 22.04.5
+2026-05-17T13:08:56.3770000Z LTS
+2026-05-17T13:08:56.3920000Z ##[endgroup]
+2026-05-17T13:08:56.3950000Z ##[group]Runner Image
+2026-05-17T13:08:56.4850000Z Image: ubuntu-22.04
+2026-05-17T13:08:56.5580000Z Version: 20260504.1.0
+2026-05-17T13:08:56.5620000Z ##[endgroup]
+2026-05-17T13:08:56.6300000Z ##[group]GITHUB_TOKEN Permissions
+2026-05-17T13:08:56.6880000Z Contents: read
+2026-05-17T13:08:56.7410000Z Packages: read
+2026-05-17T13:08:56.8290000Z ##[endgroup]
+2026-05-17T13:08:56.8900000Z Secret source: Actions
+2026-05-17T13:08:56.9750000Z Prepare workflow directory
+2026-05-17T13:08:57.0500000Z Prepare all required actions
+2026-05-17T13:08:57.0580000Z Getting action download info
+2026-05-17T13:08:57.1270000Z ##[group]Run actions/checkout@v4.2.2
+2026-05-17T13:08:57.1530000Z with:
+2026-05-17T13:08:57.1640000Z   fetch-depth: 0
+2026-05-17T13:08:57.2540000Z   repository: ridgeline/checkout-service
+2026-05-17T13:08:57.2570000Z ##[endgroup]
+2026-05-17T13:08:57.3090000Z Syncing repository: ridgeline/checkout-service
+2026-05-17T13:08:57.3800000Z /usr/bin/git version
+2026-05-17T13:08:57.4420000Z git version 2.51.0
+2026-05-17T13:08:57.4800000Z ##[group]Determining the checkout info
+2026-05-17T13:08:57.4890000Z ##[endgroup]
+2026-05-17T13:08:57.5620000Z Fetching the repository
+2026-05-17T13:08:57.6030000Z /usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/feat/ledger-replay*:refs/remotes/origin/feat/ledger-replay*
+2026-05-17T13:08:57.6620000Z ##[group]Checking out the ref
+2026-05-17T13:08:57.7330000Z /usr/bin/git checkout --progress --force refs/remotes/origin/feat/ledger-replay
+2026-05-17T13:08:57.7810000Z HEAD is now at 16b90d8 chore: rebase onto feat/ledger-replay
+2026-05-17T13:08:57.8680000Z ##[endgroup]
+2026-05-17T13:08:57.9090000Z ##[group]Run go test ./... -race -count=1
+2026-05-17T13:08:57.9880000Z go test ./... -race -count=1
+2026-05-17T13:08:58.0480000Z shell: /usr/bin/bash -e {0}
+2026-05-17T13:08:58.0950000Z env:
+2026-05-17T13:08:58.1390000Z   CI: true
+2026-05-17T13:08:58.2260000Z   FORCE_COLOR: 0
+2026-05-17T13:08:58.2540000Z ##[endgroup]
+2026-05-17T13:08:58.3350000Z === RUN   TestDispatcherDrainsQueue
+2026-05-17T13:08:58.3910000Z === PAUSE TestDispatcherDrainsQueue
+2026-05-17T13:08:58.4360000Z === CONT  TestDispatcherDrainsQueue
+2026-05-17T13:08:58.5170000Z panic: send on closed channel
+2026-05-17T13:08:58.5760000Z 
+2026-05-17T13:08:58.6020000Z goroutine 211 [running]:
+2026-05-17T13:08:58.6700000Z ridgeline/checkout/internal/queue.(*Dispatcher).enqueue(0xc00071d316, {0x170728, 0xc000a787d})
+2026-05-17T13:08:58.6820000Z 	/home/runner/work/checkout-service/checkout-service/internal/queue/dispatcher.go:142 +0x1c5
+2026-05-17T13:08:58.6860000Z ridgeline/checkout/internal/queue.(*Dispatcher).Run.func2()
+2026-05-17T13:08:58.7090000Z 	/home/runner/work/checkout-service/checkout-service/internal/queue/dispatcher.go:97 +0x8a
+2026-05-17T13:08:58.7990000Z created by ridgeline/checkout/internal/queue.(*Dispatcher).Run in goroutine 209
+2026-05-17T13:08:58.8830000Z 	/home/runner/work/checkout-service/checkout-service/internal/queue/dispatcher.go:95 +0x134
+2026-05-17T13:08:58.9310000Z exit status 2
+2026-05-17T13:08:59.0170000Z FAIL	ridgeline/checkout/internal/queue	5.957s
+2026-05-17T13:08:59.0350000Z ##[error]Process completed with exit code 2.
+2026-05-17T13:08:59.1120000Z Post job cleanup.
+2026-05-17T13:08:59.1540000Z ##[group]Post Run actions/cache@v4.1.2
+2026-05-17T13:08:59.2070000Z Post cache
+2026-05-17T13:08:59.2520000Z /usr/bin/tar --posix -acf cache.tzst --exclude cache.tzst -P -C /home/runner/work/checkout-service/checkout-service --files-from manifest.txt
+2026-05-17T13:08:59.2630000Z Cache saved successfully
+2026-05-17T13:08:59.3500000Z Cache saved with key: node-cache-Linux-x64-9f2c1d
+2026-05-17T13:08:59.3710000Z ##[endgroup]
+2026-05-17T13:08:59.4010000Z ##[group]Post Run actions/upload-artifact@v4.4.3
+2026-05-17T13:08:59.4230000Z With the provided path, there will be 1 file uploaded
+2026-05-17T13:08:59.4840000Z Artifact name is valid!
+2026-05-17T13:08:59.5260000Z ##[warning]No files were found with the provided path: junit.xml. No artifacts will be uploaded.
+2026-05-17T13:08:59.5800000Z ##[endgroup]
+2026-05-17T13:08:59.6360000Z ##[group]Post Run actions/checkout@v4.2.2
+2026-05-17T13:08:59.7030000Z /usr/bin/git version
+2026-05-17T13:08:59.7650000Z Temporarily overriding HOME='/home/runner/work/_temp/8c1a' before making global git config changes
+2026-05-17T13:08:59.8210000Z Removing extraheader from the repository
+2026-05-17T13:08:59.8860000Z ##[endgroup]
+2026-05-17T13:08:59.9450000Z Cleaning up orphan processes
+2026-05-17T13:09:00.0290000Z Evaluate and set job outputs
+2026-05-17T13:09:00.0450000Z Job go-tests completed with result: Failure
