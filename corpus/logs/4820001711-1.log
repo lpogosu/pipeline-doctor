@@ -1,0 +1,90 @@
+2026-06-01T17:10:23.0280000Z Current runner version: '2.331.0'
+2026-06-01T17:10:23.0880000Z ##[group]Runner Image Provisioner
+2026-06-01T17:10:23.1260000Z 2.0.451.1
+2026-06-01T17:10:23.1320000Z ##[endgroup]
+2026-06-01T17:10:23.2000000Z ##[group]Operating System
+2026-06-01T17:10:23.2860000Z Ubuntu
+2026-06-01T17:10:23.3310000Z 22.04.5
+2026-06-01T17:10:23.3750000Z LTS
+2026-06-01T17:10:23.3940000Z ##[endgroup]
+2026-06-01T17:10:23.4680000Z ##[group]Runner Image
+2026-06-01T17:10:23.5510000Z Image: ubuntu-22.04
+2026-06-01T17:10:23.6070000Z Version: 20260504.1.0
+2026-06-01T17:10:23.6280000Z ##[endgroup]
+2026-06-01T17:10:23.7010000Z ##[group]GITHUB_TOKEN Permissions
+2026-06-01T17:10:23.7630000Z Contents: read
+2026-06-01T17:10:23.7730000Z Packages: read
+2026-06-01T17:10:23.8130000Z ##[endgroup]
+2026-06-01T17:10:23.8530000Z Secret source: Actions
+2026-06-01T17:10:23.9220000Z Prepare workflow directory
+2026-06-01T17:10:24.0010000Z Prepare all required actions
+2026-06-01T17:10:24.0370000Z Getting action download info
+2026-06-01T17:10:24.0690000Z ##[group]Run actions/checkout@v4.2.2
+2026-06-01T17:10:24.0790000Z with:
+2026-06-01T17:10:24.1390000Z   fetch-depth: 0
+2026-06-01T17:10:24.1960000Z   repository: ridgeline/checkout-service
+2026-06-01T17:10:24.2440000Z ##[endgroup]
+2026-06-01T17:10:24.2680000Z Syncing repository: ridgeline/checkout-service
+2026-06-01T17:10:24.3360000Z /usr/bin/git version
+2026-06-01T17:10:24.3770000Z git version 2.51.0
+2026-06-01T17:10:24.3960000Z ##[group]Determining the checkout info
+2026-06-01T17:10:24.4800000Z ##[endgroup]
+2026-06-01T17:10:24.5450000Z Fetching the repository
+2026-06-01T17:10:24.5520000Z /usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/main*:refs/remotes/origin/main*
+2026-06-01T17:10:24.6370000Z ##[group]Checking out the ref
+2026-06-01T17:10:24.6430000Z /usr/bin/git checkout --progress --force refs/remotes/origin/main
+2026-06-01T17:10:24.6640000Z HEAD is now at bd59212 chore: rebase onto main
+2026-06-01T17:10:24.7350000Z ##[endgroup]
+2026-06-01T17:10:24.7710000Z ##[group]Run docker buildx build --push -t ghcr.io/ridgeline/checkout-service:edge .
+2026-06-01T17:10:24.8020000Z docker buildx build --push -t ghcr.io/ridgeline/checkout-service:edge .
+2026-06-01T17:10:24.8190000Z shell: /usr/bin/bash -e {0}
+2026-06-01T17:10:24.8970000Z env:
+2026-06-01T17:10:24.9410000Z   CI: true
+2026-06-01T17:10:25.0140000Z   FORCE_COLOR: 0
+2026-06-01T17:10:25.0270000Z ##[endgroup]
+2026-06-01T17:10:25.0890000Z ##[group]docker buildx build
+2026-06-01T17:10:25.0970000Z #0 building with "builder" instance using docker-container driver
+2026-06-01T17:10:25.1620000Z 
+2026-06-01T17:10:25.2190000Z #1 [internal] load build definition from Dockerfile
+2026-06-01T17:10:25.2860000Z #1 transferring dockerfile: 1.42kB done
+2026-06-01T17:10:25.3560000Z #1 DONE 0.0s
+2026-06-01T17:10:25.3840000Z 
+2026-06-01T17:10:25.4610000Z #2 [internal] load metadata for docker.io/library/python:3.11-slim
+2026-06-01T17:10:25.4650000Z #2 resolve docker.io/library/python:3.11-slim@sha256:b10d4240a9f060bab438e0377111452957b3e89d16778375a9fdd44feaaa2657 done
+2026-06-01T17:10:25.5040000Z #2 DONE 0.6s
+2026-06-01T17:10:25.5570000Z 
+2026-06-01T17:10:25.5650000Z #12 [builder 5/8] RUN pip install --no-cache-dir -r requirements.txt
+2026-06-01T17:10:25.5910000Z #12 2.34 Collecting fastapi==0.124.4
+2026-06-01T17:10:25.6510000Z #12 3.829   Downloading fastapi-0.124.4-py3-none-any.whl (94 kB)
+2026-06-01T17:10:25.6860000Z #12 0.704 ERROR: Could not find a version that satisfies the requirement ridgeline-common==2.9.1 (from versions: 2.7.0, 2.8.0, 2.8.3)
+2026-06-01T17:10:25.7430000Z #12 3.04 ERROR: No matching distribution found for ridgeline-common==2.9.1
+2026-06-01T17:10:25.8280000Z #12 ERROR: process "/bin/sh -c pip install --no-cache-dir -r requirements.txt" did not complete successfully: exit code: 1
+2026-06-01T17:10:25.8380000Z ------
+2026-06-01T17:10:25.8810000Z  > [builder 5/8] RUN pip install --no-cache-dir -r requirements.txt:
+2026-06-01T17:10:25.9560000Z 3.829   Downloading fastapi-0.124.4-py3-none-any.whl (94 kB)
+2026-06-01T17:10:25.9650000Z 0.704 ERROR: Could not find a version that satisfies the requirement ridgeline-common==2.9.1 (from versions: 2.7.0, 2.8.0, 2.8.3)
+2026-06-01T17:10:26.0070000Z 3.04 ERROR: No matching distribution found for ridgeline-common==2.9.1
+2026-06-01T17:10:26.0410000Z ------
+2026-06-01T17:10:26.0830000Z ERROR: failed to solve: process "/bin/sh -c pip install --no-cache-dir -r requirements.txt" did not complete successfully: exit code: 1
+2026-06-01T17:10:26.1640000Z ##[endgroup]
+2026-06-01T17:10:26.2490000Z ##[error]Process completed with exit code 1.
+2026-06-01T17:10:26.3290000Z Post job cleanup.
+2026-06-01T17:10:26.3420000Z ##[group]Post Run actions/cache@v4.1.2
+2026-06-01T17:10:26.3590000Z Post cache
+2026-06-01T17:10:26.4460000Z /usr/bin/tar --posix -acf cache.tzst --exclude cache.tzst -P -C /home/runner/work/checkout-service/checkout-service --files-from manifest.txt
+2026-06-01T17:10:26.4700000Z Cache saved successfully
+2026-06-01T17:10:26.4940000Z Cache saved with key: node-cache-Linux-x64-9f2c1d
+2026-06-01T17:10:26.5750000Z ##[endgroup]
+2026-06-01T17:10:26.6350000Z ##[group]Post Run actions/upload-artifact@v4.4.3
+2026-06-01T17:10:26.7240000Z With the provided path, there will be 1 file uploaded
+2026-06-01T17:10:26.7870000Z Artifact name is valid!
+2026-06-01T17:10:26.8240000Z ##[warning]No files were found with the provided path: junit.xml. No artifacts will be uploaded.
+2026-06-01T17:10:26.8590000Z ##[endgroup]
+2026-06-01T17:10:26.9480000Z ##[group]Post Run actions/checkout@v4.2.2
+2026-06-01T17:10:26.9930000Z /usr/bin/git version
+2026-06-01T17:10:26.9970000Z Temporarily overriding HOME='/home/runner/work/_temp/8c1a' before making global git config changes
+2026-06-01T17:10:27.0200000Z Removing extraheader from the repository
+2026-06-01T17:10:27.0950000Z ##[endgroup]
+2026-06-01T17:10:27.1770000Z Cleaning up orphan processes
+2026-06-01T17:10:27.2210000Z Evaluate and set job outputs
+2026-06-01T17:10:27.2460000Z Job image completed with result: Failure
