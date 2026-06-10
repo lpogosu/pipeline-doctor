@@ -1,0 +1,71 @@
+2026-05-14T11:56:10.0640000Z Current runner version: '2.331.0'
+2026-05-14T11:56:10.1390000Z ##[group]Runner Image Provisioner
+2026-05-14T11:56:10.1800000Z 2.0.451.1
+2026-05-14T11:56:10.2330000Z ##[endgroup]
+2026-05-14T11:56:10.2910000Z ##[group]Operating System
+2026-05-14T11:56:10.3450000Z Ubuntu
+2026-05-14T11:56:10.3860000Z 22.04.5
+2026-05-14T11:56:10.4260000Z LTS
+2026-05-14T11:56:10.4540000Z ##[endgroup]
+2026-05-14T11:56:10.5360000Z ##[group]Runner Image
+2026-05-14T11:56:10.6220000Z Image: ubuntu-22.04
+2026-05-14T11:56:10.6630000Z Version: 20260504.1.0
+2026-05-14T11:56:10.6870000Z ##[endgroup]
+2026-05-14T11:56:10.7180000Z ##[group]GITHUB_TOKEN Permissions
+2026-05-14T11:56:10.7810000Z Contents: read
+2026-05-14T11:56:10.8490000Z Packages: read
+2026-05-14T11:56:10.9180000Z ##[endgroup]
+2026-05-14T11:56:10.9410000Z Secret source: Actions
+2026-05-14T11:56:10.9440000Z Prepare workflow directory
+2026-05-14T11:56:10.9750000Z Prepare all required actions
+2026-05-14T11:56:11.0250000Z Getting action download info
+2026-05-14T11:56:11.0500000Z ##[group]Run actions/checkout@v4.2.2
+2026-05-14T11:56:11.1090000Z with:
+2026-05-14T11:56:11.1330000Z   fetch-depth: 0
+2026-05-14T11:56:11.1680000Z   repository: ridgeline/checkout-service
+2026-05-14T11:56:11.2360000Z ##[endgroup]
+2026-05-14T11:56:11.3100000Z Syncing repository: ridgeline/checkout-service
+2026-05-14T11:56:11.3620000Z /usr/bin/git version
+2026-05-14T11:56:11.4240000Z git version 2.51.0
+2026-05-14T11:56:11.4590000Z ##[group]Determining the checkout info
+2026-05-14T11:56:11.5060000Z ##[endgroup]
+2026-05-14T11:56:11.5130000Z Fetching the repository
+2026-05-14T11:56:11.5610000Z /usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/main*:refs/remotes/origin/main*
+2026-05-14T11:56:11.6500000Z ##[group]Checking out the ref
+2026-05-14T11:56:11.7370000Z /usr/bin/git checkout --progress --force refs/remotes/origin/main
+2026-05-14T11:56:11.7800000Z HEAD is now at 9c1ecae chore: rebase onto main
+2026-05-14T11:56:11.8540000Z ##[endgroup]
+2026-05-14T11:56:11.8740000Z ##[group]Run docker buildx build --push -t ghcr.io/ridgeline/checkout-service:edge .
+2026-05-14T11:56:11.9440000Z docker buildx build --push -t ghcr.io/ridgeline/checkout-service:edge .
+2026-05-14T11:56:12.0040000Z shell: /usr/bin/bash -e {0}
+2026-05-14T11:56:12.0290000Z env:
+2026-05-14T11:56:12.0440000Z   CI: true
+2026-05-14T11:56:12.0680000Z   FORCE_COLOR: 0
+2026-05-14T11:56:12.1020000Z ##[endgroup]
+2026-05-14T11:56:12.1330000Z #8 exporting layers
+2026-05-14T11:56:12.1420000Z #8 exporting layers 53.1s done
+2026-05-14T11:56:12.2290000Z Filesystem      Size  Used Avail Use% Mounted on
+2026-05-14T11:56:12.2700000Z /dev/root        73G   73G  37M 100% /
+2026-05-14T11:56:12.3450000Z failed to copy files: userspace copy failed: write /var/lib/docker/overlay2/l/QK3F/usr/lib/x86_64-linux-gnu/libLLVM-17.so.1: no space left on device
+2026-05-14T11:56:12.4310000Z ##[error]buildx failed with: ERROR: failed to solve: failed to copy files: userspace copy failed: No space left on device
+2026-05-14T11:56:12.5040000Z ##[error]Process completed with exit code 1.
+2026-05-14T11:56:12.5610000Z Post job cleanup.
+2026-05-14T11:56:12.6410000Z ##[group]Post Run actions/cache@v4.1.2
+2026-05-14T11:56:12.6570000Z Post cache
+2026-05-14T11:56:12.7460000Z /usr/bin/tar --posix -acf cache.tzst --exclude cache.tzst -P -C /home/runner/work/checkout-service/checkout-service --files-from manifest.txt
+2026-05-14T11:56:12.7850000Z Cache saved successfully
+2026-05-14T11:56:12.8680000Z Cache saved with key: node-cache-Linux-x64-9f2c1d
+2026-05-14T11:56:12.8910000Z ##[endgroup]
+2026-05-14T11:56:12.9310000Z ##[group]Post Run actions/upload-artifact@v4.4.3
+2026-05-14T11:56:13.0100000Z With the provided path, there will be 1 file uploaded
+2026-05-14T11:56:13.0520000Z Artifact name is valid!
+2026-05-14T11:56:13.0890000Z ##[warning]No files were found with the provided path: junit.xml. No artifacts will be uploaded.
+2026-05-14T11:56:13.1350000Z ##[endgroup]
+2026-05-14T11:56:13.1500000Z ##[group]Post Run actions/checkout@v4.2.2
+2026-05-14T11:56:13.2090000Z /usr/bin/git version
+2026-05-14T11:56:13.2360000Z Temporarily overriding HOME='/home/runner/work/_temp/8c1a' before making global git config changes
+2026-05-14T11:56:13.2580000Z Removing extraheader from the repository
+2026-05-14T11:56:13.3190000Z ##[endgroup]
+2026-05-14T11:56:13.3540000Z Cleaning up orphan processes
+2026-05-14T11:56:13.3870000Z Evaluate and set job outputs
+2026-05-14T11:56:13.4440000Z Job image completed with result: Failure
