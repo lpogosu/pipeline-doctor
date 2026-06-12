@@ -1,0 +1,73 @@
+2026-05-12T16:59:46.0510000Z Current runner version: '2.331.0'
+2026-05-12T16:59:46.1410000Z ##[group]Runner Image Provisioner
+2026-05-12T16:59:46.2030000Z 2.0.451.1
+2026-05-12T16:59:46.2190000Z ##[endgroup]
+2026-05-12T16:59:46.2800000Z ##[group]Operating System
+2026-05-12T16:59:46.3300000Z Ubuntu
+2026-05-12T16:59:46.3440000Z 22.04.5
+2026-05-12T16:59:46.4210000Z LTS
+2026-05-12T16:59:46.4710000Z ##[endgroup]
+2026-05-12T16:59:46.5100000Z ##[group]Runner Image
+2026-05-12T16:59:46.5880000Z Image: ubuntu-22.04
+2026-05-12T16:59:46.6340000Z Version: 20260504.1.0
+2026-05-12T16:59:46.6730000Z ##[endgroup]
+2026-05-12T16:59:46.7140000Z ##[group]GITHUB_TOKEN Permissions
+2026-05-12T16:59:46.7830000Z Contents: read
+2026-05-12T16:59:46.7910000Z Packages: read
+2026-05-12T16:59:46.8280000Z ##[endgroup]
+2026-05-12T16:59:46.8530000Z Secret source: Actions
+2026-05-12T16:59:46.9130000Z Prepare workflow directory
+2026-05-12T16:59:46.9630000Z Prepare all required actions
+2026-05-12T16:59:47.0480000Z Getting action download info
+2026-05-12T16:59:47.0610000Z ##[group]Run actions/checkout@v4.2.2
+2026-05-12T16:59:47.1480000Z with:
+2026-05-12T16:59:47.2360000Z   fetch-depth: 0
+2026-05-12T16:59:47.3180000Z   repository: ridgeline/checkout-service
+2026-05-12T16:59:47.3840000Z ##[endgroup]
+2026-05-12T16:59:47.4240000Z Syncing repository: ridgeline/checkout-service
+2026-05-12T16:59:47.5140000Z /usr/bin/git version
+2026-05-12T16:59:47.5190000Z git version 2.51.0
+2026-05-12T16:59:47.5780000Z ##[group]Determining the checkout info
+2026-05-12T16:59:47.6250000Z ##[endgroup]
+2026-05-12T16:59:47.6970000Z Fetching the repository
+2026-05-12T16:59:47.7670000Z /usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/feat/design-system-2*:refs/remotes/origin/feat/design-system-2*
+2026-05-12T16:59:47.8560000Z ##[group]Checking out the ref
+2026-05-12T16:59:47.8650000Z /usr/bin/git checkout --progress --force refs/remotes/origin/feat/design-system-2
+2026-05-12T16:59:47.9130000Z HEAD is now at 72ab469 chore: rebase onto feat/design-system-2
+2026-05-12T16:59:47.9510000Z ##[endgroup]
+2026-05-12T16:59:48.0250000Z ##[group]Run npm ci
+2026-05-12T16:59:48.0760000Z npm ci
+2026-05-12T16:59:48.1420000Z shell: /usr/bin/bash -e {0}
+2026-05-12T16:59:48.2250000Z env:
+2026-05-12T16:59:48.2780000Z   CI: true
+2026-05-12T16:59:48.3320000Z   FORCE_COLOR: 0
+2026-05-12T16:59:48.3480000Z ##[endgroup]
+2026-05-12T16:59:48.4240000Z npm warn deprecated inflight@1.0.6: This module is not supported
+2026-05-12T16:59:48.4550000Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2026-05-12T16:59:48.4910000Z npm ERR! code ETARGET
+2026-05-12T16:59:48.4970000Z npm ERR! notarget No matching version found for @ridgeline/ui-tokens@3.4.0.
+2026-05-12T16:59:48.5630000Z npm ERR! notarget In most cases you or one of your dependencies are requesting
+2026-05-12T16:59:48.5700000Z npm ERR! notarget a package version that doesn't exist.
+2026-05-12T16:59:48.6100000Z npm ERR!
+2026-05-12T16:59:48.6510000Z npm ERR! A complete log of this run can be found in: /home/runner/.npm/_logs/2026-05-12T16_59_46_872Z-debug-0.log
+2026-05-12T16:59:48.6870000Z ##[error]Process completed with exit code 1.
+2026-05-12T16:59:48.7230000Z Post job cleanup.
+2026-05-12T16:59:48.8120000Z ##[group]Post Run actions/cache@v4.1.2
+2026-05-12T16:59:48.8440000Z Post cache
+2026-05-12T16:59:48.8740000Z /usr/bin/tar --posix -acf cache.tzst --exclude cache.tzst -P -C /home/runner/work/checkout-service/checkout-service --files-from manifest.txt
+2026-05-12T16:59:48.9260000Z Cache saved successfully
+2026-05-12T16:59:49.0150000Z Cache saved with key: node-cache-Linux-x64-9f2c1d
+2026-05-12T16:59:49.0540000Z ##[endgroup]
+2026-05-12T16:59:49.1150000Z ##[group]Post Run actions/upload-artifact@v4.4.3
+2026-05-12T16:59:49.1360000Z With the provided path, there will be 1 file uploaded
+2026-05-12T16:59:49.2120000Z Artifact name is valid!
+2026-05-12T16:59:49.2540000Z ##[warning]No files were found with the provided path: junit.xml. No artifacts will be uploaded.
+2026-05-12T16:59:49.2690000Z ##[endgroup]
+2026-05-12T16:59:49.3420000Z ##[group]Post Run actions/checkout@v4.2.2
+2026-05-12T16:59:49.3780000Z /usr/bin/git version
+2026-05-12T16:59:49.4570000Z Temporarily overriding HOME='/home/runner/work/_temp/8c1a' before making global git config changes
+2026-05-12T16:59:49.5090000Z Removing extraheader from the repository
+2026-05-12T16:59:49.5700000Z ##[endgroup]
+2026-05-12T16:59:49.6320000Z Cleaning up orphan processes
+2026-05-12T16:59:49.7080000Z Evaluate and set job outputs
+2026-05-12T16:59:49.7330000Z Job web-build completed with result: Failure

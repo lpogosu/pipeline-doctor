@@ -1,0 +1,77 @@
+2026-05-11T13:37:38.0230000Z Current runner version: '2.331.0'
+2026-05-11T13:37:38.0560000Z ##[group]Runner Image Provisioner
+2026-05-11T13:37:38.1380000Z 2.0.451.1
+2026-05-11T13:37:38.2140000Z ##[endgroup]
+2026-05-11T13:37:38.2720000Z ##[group]Operating System
+2026-05-11T13:37:38.3510000Z Ubuntu
+2026-05-11T13:37:38.3560000Z 22.04.5
+2026-05-11T13:37:38.4030000Z LTS
+2026-05-11T13:37:38.4160000Z ##[endgroup]
+2026-05-11T13:37:38.4980000Z ##[group]Runner Image
+2026-05-11T13:37:38.5130000Z Image: ubuntu-22.04
+2026-05-11T13:37:38.5820000Z Version: 20260504.1.0
+2026-05-11T13:37:38.6550000Z ##[endgroup]
+2026-05-11T13:37:38.6960000Z ##[group]GITHUB_TOKEN Permissions
+2026-05-11T13:37:38.7660000Z Contents: read
+2026-05-11T13:37:38.7790000Z Packages: read
+2026-05-11T13:37:38.8170000Z ##[endgroup]
+2026-05-11T13:37:38.8540000Z Secret source: Actions
+2026-05-11T13:37:38.9260000Z Prepare workflow directory
+2026-05-11T13:37:38.9490000Z Prepare all required actions
+2026-05-11T13:37:39.0000000Z Getting action download info
+2026-05-11T13:37:39.0060000Z ##[group]Run actions/checkout@v4.2.2
+2026-05-11T13:37:39.0550000Z with:
+2026-05-11T13:37:39.1400000Z   fetch-depth: 0
+2026-05-11T13:37:39.2120000Z   repository: ridgeline/checkout-service
+2026-05-11T13:37:39.2400000Z ##[endgroup]
+2026-05-11T13:37:39.2700000Z Syncing repository: ridgeline/checkout-service
+2026-05-11T13:37:39.3410000Z /usr/bin/git version
+2026-05-11T13:37:39.3610000Z git version 2.51.0
+2026-05-11T13:37:39.4460000Z ##[group]Determining the checkout info
+2026-05-11T13:37:39.5070000Z ##[endgroup]
+2026-05-11T13:37:39.5900000Z Fetching the repository
+2026-05-11T13:37:39.6490000Z /usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/main*:refs/remotes/origin/main*
+2026-05-11T13:37:39.7110000Z ##[group]Checking out the ref
+2026-05-11T13:37:39.7170000Z /usr/bin/git checkout --progress --force refs/remotes/origin/main
+2026-05-11T13:37:39.7210000Z HEAD is now at 3d55c5c chore: rebase onto main
+2026-05-11T13:37:39.7360000Z ##[endgroup]
+2026-05-11T13:37:39.8200000Z ##[group]Run ./scripts/deploy.sh staging
+2026-05-11T13:37:39.8470000Z ./scripts/deploy.sh staging
+2026-05-11T13:37:39.8930000Z shell: /usr/bin/bash -e {0}
+2026-05-11T13:37:39.9530000Z env:
+2026-05-11T13:37:40.0180000Z   CI: true
+2026-05-11T13:37:40.0370000Z   FORCE_COLOR: 0
+2026-05-11T13:37:40.0460000Z ##[endgroup]
+2026-05-11T13:37:40.0620000Z + export KUBECONFIG=/home/runner/.kube/staging.yaml
+2026-05-11T13:37:40.0780000Z + helm upgrade --install checkout charts/checkout --wait --timeout 5m
+2026-05-11T13:37:40.1360000Z Release "checkout" has been upgraded. Happy Helming!
+2026-05-11T13:37:40.1950000Z NAME: checkout
+2026-05-11T13:37:40.2100000Z LAST DEPLOYED: Mon May 11 13:37:38 2026
+2026-05-11T13:37:40.2320000Z STATUS: deployed
+2026-05-11T13:37:40.2640000Z REVISION: f0
+2026-05-11T13:37:40.3320000Z + ./scripts/smoke.sh https://staging.ridgeline.example
+2026-05-11T13:37:40.3630000Z checking /healthz ... ok
+2026-05-11T13:37:40.4110000Z checking /readyz ... ok
+2026-05-11T13:37:40.4510000Z checking /api/v1/quote ... unexpected body
+2026-05-11T13:37:40.4570000Z smoke check failed after 3 attempts
+2026-05-11T13:37:40.5040000Z ##[error]Process completed with exit code 1.
+2026-05-11T13:37:40.5090000Z Post job cleanup.
+2026-05-11T13:37:40.5140000Z ##[group]Post Run actions/cache@v4.1.2
+2026-05-11T13:37:40.5680000Z Post cache
+2026-05-11T13:37:40.6330000Z /usr/bin/tar --posix -acf cache.tzst --exclude cache.tzst -P -C /home/runner/work/checkout-service/checkout-service --files-from manifest.txt
+2026-05-11T13:37:40.6540000Z Cache saved successfully
+2026-05-11T13:37:40.7060000Z Cache saved with key: node-cache-Linux-x64-9f2c1d
+2026-05-11T13:37:40.7600000Z ##[endgroup]
+2026-05-11T13:37:40.8340000Z ##[group]Post Run actions/upload-artifact@v4.4.3
+2026-05-11T13:37:40.9070000Z With the provided path, there will be 1 file uploaded
+2026-05-11T13:37:40.9750000Z Artifact name is valid!
+2026-05-11T13:37:41.0480000Z ##[warning]No files were found with the provided path: junit.xml. No artifacts will be uploaded.
+2026-05-11T13:37:41.1250000Z ##[endgroup]
+2026-05-11T13:37:41.1870000Z ##[group]Post Run actions/checkout@v4.2.2
+2026-05-11T13:37:41.2020000Z /usr/bin/git version
+2026-05-11T13:37:41.2400000Z Temporarily overriding HOME='/home/runner/work/_temp/8c1a' before making global git config changes
+2026-05-11T13:37:41.3170000Z Removing extraheader from the repository
+2026-05-11T13:37:41.3250000Z ##[endgroup]
+2026-05-11T13:37:41.4050000Z Cleaning up orphan processes
+2026-05-11T13:37:41.4650000Z Evaluate and set job outputs
+2026-05-11T13:37:41.5480000Z Job staging completed with result: Failure
