@@ -1,0 +1,6 @@
+2026-06-05T19:02:03.1120031Z ##[group]Run actions/dependency-review-action@v4
+2026-06-05T19:02:03.1136110Z ##[endgroup]
+2026-06-05T19:02:11.0091132Z Dependency review found 2 vulnerable packages
+2026-06-05T19:02:11.4410210Z ##[error]Dependency review detected vulnerable packages: pyyaml@5.3.1 (critical)
+2026-06-05T19:02:11.4419210Z Please update the affected dependencies before merging.
+2026-06-05T19:02:12.9910210Z ##[error]Process completed with exit code 1.

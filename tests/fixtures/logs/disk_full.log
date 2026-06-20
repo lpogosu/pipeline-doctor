@@ -1,0 +1,9 @@
+2026-05-28T20:12:03.1120031Z ##[group]Run docker buildx build -t checkout:edge .
+2026-05-28T20:12:03.1129210Z docker buildx build -t checkout:edge .
+2026-05-28T20:12:03.1136110Z ##[endgroup]
+2026-05-28T20:14:41.0091132Z #8 exporting layers
+2026-05-28T20:15:02.4410210Z #8 exporting layers 41.2s done
+2026-05-28T20:15:03.4419210Z Filesystem      Size  Used Avail Use% Mounted on
+2026-05-28T20:15:03.4425031Z /dev/root        73G   73G   34M 100% /
+2026-05-28T20:15:04.4431102Z failed to copy files: userspace copy failed: write /var/lib/docker/overlay2/l/QK3F/usr/lib/x86_64-linux-gnu/libLLVM-17.so.1: no space left on device
+2026-05-28T20:15:04.4437110Z ##[error]buildx failed with: ERROR: failed to solve: failed to copy files: userspace copy failed: No space left on device

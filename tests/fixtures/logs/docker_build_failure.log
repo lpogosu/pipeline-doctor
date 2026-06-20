@@ -1,0 +1,27 @@
+2026-05-24T11:02:03.1120031Z ##[group]Run docker buildx build --push -t ghcr.io/ridgeline/checkout-service:edge .
+2026-05-24T11:02:03.1129210Z docker buildx build --push -t ghcr.io/ridgeline/checkout-service:edge .
+2026-05-24T11:02:03.1136110Z ##[endgroup]
+2026-05-24T11:02:04.0091132Z #0 building with "builder" instance using docker-container driver
+2026-05-24T11:02:04.4410210Z
+2026-05-24T11:02:04.4419210Z #1 [internal] load build definition from Dockerfile
+2026-05-24T11:02:04.4425031Z #1 transferring dockerfile: 1.42kB done
+2026-05-24T11:02:04.4431102Z #1 DONE 0.0s
+2026-05-24T11:02:05.1120031Z
+2026-05-24T11:02:05.4410210Z #2 [internal] load metadata for docker.io/library/python:3.11-slim
+2026-05-24T11:02:06.1120031Z #2 DONE 0.6s
+2026-05-24T11:02:06.4410210Z
+2026-05-24T11:02:14.8821031Z #12 [builder 5/8] RUN pip install --no-cache-dir -r requirements.txt
+2026-05-24T11:02:15.0091132Z #12 1.204 Collecting fastapi==0.124.4
+2026-05-24T11:02:16.4410210Z #12 2.118   Downloading fastapi-0.124.4-py3-none-any.whl (94 kB)
+2026-05-24T11:02:17.4419210Z #12 2.881 ERROR: Could not find a version that satisfies the requirement ridgeline-common==2.9.1 (from versions: 2.7.0, 2.8.0, 2.8.3)
+2026-05-24T11:02:17.4425031Z #12 2.884 ERROR: No matching distribution found for ridgeline-common==2.9.1
+2026-05-24T11:02:17.4431102Z #12 ERROR: process "/bin/sh -c pip install --no-cache-dir -r requirements.txt" did not complete successfully: exit code: 1
+2026-05-24T11:02:17.4437110Z ------
+2026-05-24T11:02:17.4442210Z  > [builder 5/8] RUN pip install --no-cache-dir -r requirements.txt:
+2026-05-24T11:02:17.4448031Z 2.118   Downloading fastapi-0.124.4-py3-none-any.whl (94 kB)
+2026-05-24T11:02:17.4453110Z 2.881 ERROR: Could not find a version that satisfies the requirement ridgeline-common==2.9.1 (from versions: 2.7.0, 2.8.0, 2.8.3)
+2026-05-24T11:02:17.4458210Z 2.884 ERROR: No matching distribution found for ridgeline-common==2.9.1
+2026-05-24T11:02:17.4463102Z ------
+2026-05-24T11:02:17.4468110Z ERROR: failed to solve: process "/bin/sh -c pip install --no-cache-dir -r requirements.txt" did not complete successfully: exit code: 1
+2026-05-24T11:02:17.9910210Z ##[error]Process completed with exit code 1.
+2026-05-24T11:02:18.1120031Z Post job cleanup.
