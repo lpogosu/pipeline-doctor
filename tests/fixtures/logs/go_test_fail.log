@@ -1,0 +1,18 @@
+2026-06-06T20:02:03.1120031Z ##[group]Run go test -v ./...
+2026-06-06T20:02:03.1129210Z go test -v ./...
+2026-06-06T20:02:03.1136110Z ##[endgroup]
+2026-06-06T20:02:31.0091132Z === RUN   TestPricingCase000
+2026-06-06T20:02:31.4410210Z --- PASS: TestPricingCase000 (0.02s)
+2026-06-06T20:02:31.4419210Z === RUN   TestReconcileLedger
+2026-06-06T20:02:31.4425031Z === RUN   TestReconcileLedger/partial_refund
+2026-06-06T20:02:31.4431102Z     reconcile_test.go:142: partial refund not applied to the open period
+2026-06-06T20:02:31.4437110Z         want: 4950
+2026-06-06T20:02:31.4442210Z         got:  4500
+2026-06-06T20:02:31.4448031Z --- FAIL: TestReconcileLedger (0.42s)
+2026-06-06T20:02:31.4453110Z     --- FAIL: TestReconcileLedger/partial_refund (0.11s)
+2026-06-06T20:02:31.4458210Z === RUN   TestPricingCase001
+2026-06-06T20:02:31.4463102Z --- PASS: TestPricingCase001 (0.01s)
+2026-06-06T20:02:32.4468110Z FAIL
+2026-06-06T20:02:32.4473210Z FAIL	ridgeline/checkout/internal/ledger	28.114s
+2026-06-06T20:02:32.9910210Z ##[error]Process completed with exit code 1.
+2026-06-06T20:02:33.1120031Z Post job cleanup.

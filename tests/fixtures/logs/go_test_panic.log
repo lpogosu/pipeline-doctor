@@ -1,0 +1,21 @@
+2026-06-03T20:11:02.4410210Z ##[group]Run go test ./... -race -count=1
+2026-06-03T20:11:02.4419210Z go test ./... -race -count=1
+2026-06-03T20:11:02.4425031Z ##[endgroup]
+2026-06-03T20:11:31.1120031Z ok  	ridgeline/checkout/internal/catalog	1.204s
+2026-06-03T20:11:44.8821031Z === RUN   TestDispatcherDrainsQueue
+2026-06-03T20:11:44.8829210Z === PAUSE TestDispatcherDrainsQueue
+2026-06-03T20:11:44.8836110Z === CONT  TestDispatcherDrainsQueue
+2026-06-03T20:11:45.0091132Z panic: send on closed channel
+2026-06-03T20:11:45.0096221Z
+2026-06-03T20:11:45.0099110Z goroutine 178 [running]:
+2026-06-03T20:11:45.0103210Z ridgeline/checkout/internal/queue.(*Dispatcher).enqueue(0xc0001a4120, {0x8f2ac0, 0xc0000b21e0})
+2026-06-03T20:11:45.0108031Z 	/home/runner/work/checkout-service/checkout-service/internal/queue/dispatcher.go:142 +0x1c5
+2026-06-03T20:11:45.0112110Z ridgeline/checkout/internal/queue.(*Dispatcher).Run.func2()
+2026-06-03T20:11:45.0116210Z 	/home/runner/work/checkout-service/checkout-service/internal/queue/dispatcher.go:97 +0x8a
+2026-06-03T20:11:45.0120031Z created by ridgeline/checkout/internal/queue.(*Dispatcher).Run in goroutine 177
+2026-06-03T20:11:45.0124110Z 	/home/runner/work/checkout-service/checkout-service/internal/queue/dispatcher.go:95 +0x134
+2026-06-03T20:11:45.0128210Z exit status 2
+2026-06-03T20:11:45.0132031Z FAIL	ridgeline/checkout/internal/queue	4.312s
+2026-06-03T20:11:45.4419210Z ##[error]Process completed with exit code 2.
+2026-06-03T20:11:46.1120031Z Post job cleanup.
+2026-06-03T20:11:46.4410210Z Cleaning up orphan processes

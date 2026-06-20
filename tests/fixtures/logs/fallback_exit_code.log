@@ -1,0 +1,11 @@
+2026-06-01T10:02:03.1120031Z ##[group]Run ./scripts/deploy.sh staging
+2026-06-01T10:02:03.1129210Z ./scripts/deploy.sh staging
+2026-06-01T10:02:03.1136110Z ##[endgroup]
+2026-06-01T10:02:11.0091132Z + helm upgrade --install checkout charts/checkout --wait --timeout 5m
+2026-06-01T10:03:41.4410210Z Release "checkout" has been upgraded. Happy Helming!
+2026-06-01T10:03:41.4419210Z STATUS: deployed
+2026-06-01T10:03:42.4425031Z + ./scripts/smoke.sh https://staging.ridgeline.example
+2026-06-01T10:03:44.4431102Z checking /healthz ... ok
+2026-06-01T10:03:46.4437110Z checking /api/v1/quote ... unexpected body
+2026-06-01T10:03:48.4442210Z smoke check failed after 3 attempts
+2026-06-01T10:03:48.9910210Z ##[error]Process completed with exit code 1.
