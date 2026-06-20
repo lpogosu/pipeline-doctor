@@ -1,0 +1,9 @@
+2026-05-27T09:02:03.1120031Z ##[group]Run xcodebuild -scheme Checkout test
+2026-05-27T09:02:03.1129210Z xcodebuild -scheme Checkout test
+2026-05-27T09:02:03.1136110Z ##[endgroup]
+2026-05-27T09:05:41.0091132Z Testing started
+2026-05-27T09:31:02.4410210Z Test Case '-[CheckoutUITests test00]' passed (4.182 seconds).
+2026-05-27T09:36:19.4419210Z Test Case '-[PaymentSheetTests test07]' passed (7.910 seconds).
+2026-05-27T09:44:37.4425031Z Test Case '-[LedgerSyncTests testResumesAfterBackground]' started.
+2026-05-27T09:47:03.4431102Z ##[error]The job running on runner GitHub Actions 12 has exceeded the maximum execution time of 45 minutes.
+2026-05-27T09:47:03.4437110Z ##[error]The operation was canceled.

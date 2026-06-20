@@ -1,0 +1,11 @@
+2026-05-31T18:02:03.1120031Z ##[group]Run java -jar tools/migrate.jar --check
+2026-05-31T18:02:03.1129210Z java -jar tools/migrate.jar --check
+2026-05-31T18:02:03.1136110Z ##[endgroup]
+2026-05-31T18:02:11.0091132Z Loaded 42 migrations from db/migrations
+2026-05-31T18:02:12.4410210Z Exception in thread "main" java.lang.IllegalStateException: checksum mismatch for V0031__add_refund_period.sql
+2026-05-31T18:02:12.4419210Z 	at ridgeline.migrate.Verifier.verify(Verifier.java:71)
+2026-05-31T18:02:12.4425031Z 	at ridgeline.migrate.Main.main(Main.java:24)
+2026-05-31T18:02:12.4431102Z Caused by: java.io.IOException: expected 9f31ab02 but found 4c11a09c
+2026-05-31T18:02:12.4437110Z 	at ridgeline.migrate.Checksums.read(Checksums.java:38)
+2026-05-31T18:02:12.4442210Z 	... 2 more
+2026-05-31T18:02:12.9910210Z ##[error]Process completed with exit code 1.
