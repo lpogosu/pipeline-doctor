@@ -1,0 +1,14 @@
+2026-06-07T18:02:03.1120031Z ##[group]Run mvn -B package
+2026-06-07T18:02:03.1129210Z mvn -B package
+2026-06-07T18:02:03.1136110Z ##[endgroup]
+2026-06-07T18:02:41.0091132Z [INFO] Compiling 118 source files with javac [debug release 21]
+2026-06-07T18:02:52.4410210Z [ERROR] COMPILATION ERROR :
+2026-06-07T18:02:52.4419210Z [ERROR] /home/runner/work/checkout-service/checkout-service/ledger/src/main/java/ridgeline/ledger/Refund.java:[44,31] cannot find symbol
+2026-06-07T18:02:52.4425031Z   symbol:   method prorate(java.time.Duration)
+2026-06-07T18:02:52.4431102Z [INFO] 1 error
+2026-06-07T18:02:53.4437110Z [INFO] ------------------------------------------------------------------------
+2026-06-07T18:02:53.4442210Z [INFO] BUILD FAILURE
+2026-06-07T18:02:53.4448031Z [INFO] ------------------------------------------------------------------------
+2026-06-07T18:02:54.4453110Z [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project ledger: Compilation failure
+2026-06-07T18:02:54.4458210Z [ERROR] -> [Help 1]
+2026-06-07T18:02:54.9910210Z ##[error]Process completed with exit code 1.

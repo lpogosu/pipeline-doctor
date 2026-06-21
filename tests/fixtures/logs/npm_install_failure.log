@@ -1,0 +1,13 @@
+2026-05-19T21:40:03.1120031Z ##[group]Run npm ci
+2026-05-19T21:40:03.1129210Z npm ci
+2026-05-19T21:40:03.1136110Z ##[endgroup]
+2026-05-19T21:40:14.8821031Z npm warn deprecated inflight@1.0.6: This module is not supported
+2026-05-19T21:40:15.0091132Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2026-05-19T21:40:16.4410210Z npm ERR! code ETARGET
+2026-05-19T21:40:16.4419210Z npm ERR! notarget No matching version found for @ridgeline/ui-tokens@3.4.0.
+2026-05-19T21:40:16.4425031Z npm ERR! notarget In most cases you or one of your dependencies are requesting
+2026-05-19T21:40:16.4431102Z npm ERR! notarget a package version that doesn't exist.
+2026-05-19T21:40:16.4437110Z npm ERR!
+2026-05-19T21:40:16.4442210Z npm ERR! A complete log of this run can be found in: /home/runner/.npm/_logs/2026-05-19T21_40_16_441Z-debug-0.log
+2026-05-19T21:40:16.9910210Z ##[error]Process completed with exit code 1.
+2026-05-19T21:40:17.1120031Z Post job cleanup.

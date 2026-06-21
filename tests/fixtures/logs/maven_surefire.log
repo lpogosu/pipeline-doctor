@@ -1,0 +1,15 @@
+2026-05-29T19:02:03.1120031Z ##[group]Run mvn -B verify
+2026-05-29T19:02:03.1129210Z mvn -B verify
+2026-05-29T19:02:03.1136110Z ##[endgroup]
+2026-05-29T19:03:41.0091132Z [INFO] Running ridgeline.ledger.LedgerReconciliationTest
+2026-05-29T19:03:52.4410210Z [ERROR] Tests run: 38, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 11.204 s <<< FAILURE! -- in ridgeline.ledger.LedgerReconciliationTest
+2026-05-29T19:03:52.4419210Z [ERROR] ridgeline.ledger.LedgerReconciliationTest.reconcilesPartialRefunds -- Time elapsed: 0.412 s <<< FAILURE!
+2026-05-29T19:03:52.4425031Z org.opentest4j.AssertionFailedError: expected: <4950> but was: <4500>
+2026-05-29T19:03:52.4431102Z 	at ridgeline.ledger.LedgerReconciliationTest.reconcilesPartialRefunds(LedgerReconciliationTest.java:88)
+2026-05-29T19:03:52.4437110Z
+2026-05-29T19:03:53.4442210Z [INFO] ------------------------------------------------------------------------
+2026-05-29T19:03:53.4448031Z [INFO] BUILD FAILURE
+2026-05-29T19:03:53.4453110Z [INFO] ------------------------------------------------------------------------
+2026-05-29T19:03:54.4458210Z [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.2.5:test (default-test) on project ledger: There are test failures.
+2026-05-29T19:03:54.4463102Z [ERROR] -> [Help 1]
+2026-05-29T19:03:54.9910210Z ##[error]Process completed with exit code 1.
