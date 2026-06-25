@@ -1,0 +1,10 @@
+2026-05-21T22:14:03.1120031Z ##[group]Run npm ci
+2026-05-21T22:14:03.1129210Z npm ci
+2026-05-21T22:14:03.1136110Z ##[endgroup]
+2026-05-21T22:14:14.8821031Z npm warn deprecated inflight@1.0.6: This module is not supported
+2026-05-21T22:14:20.0091132Z npm warn network request to https://npm.ridgeline.example failed, reason: socket hang up
+2026-05-21T22:14:26.4410210Z npm ERR! code E503
+2026-05-21T22:14:26.4419210Z npm ERR! 503 Service Unavailable - GET https://npm.ridgeline.example/@ridgeline%2fdesign-system/-/design-system-2.11.4.tgz
+2026-05-21T22:14:26.4425031Z npm ERR!
+2026-05-21T22:14:26.4431102Z npm ERR! A complete log of this run can be found in: /home/runner/.npm/_logs/2026-05-21T22_14_26_442Z-debug-0.log
+2026-05-21T22:14:26.9910210Z ##[error]Process completed with exit code 1.
