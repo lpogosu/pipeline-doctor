@@ -1,0 +1,47 @@
+2026-06-02T19:04:11.1120031Z Current runner version: '2.331.0'
+2026-06-02T19:04:11.1483102Z ##[group]Operating System
+2026-06-02T19:04:11.1490223Z Ubuntu
+2026-06-02T19:04:11.1495110Z 22.04.5
+2026-06-02T19:04:11.1500914Z LTS
+2026-06-02T19:04:11.1506221Z ##[endgroup]
+2026-06-02T19:04:12.0091132Z ##[group]Run pytest -q --junitxml=junit.xml
+2026-06-02T19:04:12.0093110Z pytest -q --junitxml=junit.xml
+2026-06-02T19:04:12.0096221Z shell: /usr/bin/bash -e {0}
+2026-06-02T19:04:12.0099110Z ##[endgroup]
+2026-06-02T19:04:19.4410210Z ============================= test session starts ==============================
+2026-06-02T19:04:19.4421031Z platform linux -- Python 3.11.9, pytest-8.2.2, pluggy-1.5.0
+2026-06-02T19:04:19.4429210Z rootdir: /home/runner/work/checkout-service/checkout-service
+2026-06-02T19:04:19.4436110Z collected 412 items
+2026-06-02T19:04:19.4441120Z
+2026-06-02T19:05:02.1180210Z tests/test_api.py ..............................             [  7%]
+2026-06-02T19:05:44.8821031Z tests/test_billing.py ....F....                             [ 41%]
+2026-06-02T19:06:31.2210110Z tests/test_ledger.py ...........................           [ 88%]
+2026-06-02T19:07:05.4419210Z
+2026-06-02T19:07:05.4425031Z =================================== FAILURES ===================================
+2026-06-02T19:07:05.4431102Z ___________________ test_prorated_refund[monthly-mid-cycle] ____________________
+2026-06-02T19:07:05.4437110Z
+2026-06-02T19:07:05.4442210Z     def test_prorated_refund(plan: Plan, clock: FakeClock) -> None:
+2026-06-02T19:07:05.4448031Z         subscription = subscribe(plan, at=clock.now())
+2026-06-02T19:07:05.4453110Z         clock.advance(days=14)
+2026-06-02T19:07:05.4458210Z         refund = cancel(subscription, at=clock.now())
+2026-06-02T19:07:05.4463102Z >       assert refund.amount == Money("49.50", "EUR")
+2026-06-02T19:07:05.4468110Z E       AssertionError: assert Money('45.00', 'EUR') == Money('49.50', 'EUR')
+2026-06-02T19:07:05.4473210Z E        +  where Money('45.00', 'EUR') = Refund(id=a91f2c4d8e07).amount
+2026-06-02T19:07:05.4478031Z
+2026-06-02T19:07:05.4483110Z tests/test_billing.py:118: AssertionError
+2026-06-02T19:07:05.4489210Z =========================== short test summary info ============================
+2026-06-02T19:07:05.4495102Z FAILED tests/test_billing.py::test_prorated_refund[monthly-mid-cycle] - AssertionError: assert Money('45.00', 'EUR') == Money('49.50', 'EUR')
+2026-06-02T19:07:05.4501110Z ========================= 1 failed, 411 passed in 214.62s ==========================
+2026-06-02T19:07:05.9910210Z ##[error]Process completed with exit code 1.
+2026-06-02T19:07:06.1120031Z Post job cleanup.
+2026-06-02T19:07:06.4410210Z ##[group]Post Run actions/upload-artifact@v4.4.3
+2026-06-02T19:07:07.1120031Z With the provided path, there will be 1 file uploaded
+2026-06-02T19:07:07.4419210Z Artifact name is valid!
+2026-06-02T19:07:08.0091132Z ##[warning]No files were found with the provided path: coverage.xml.
+2026-06-02T19:07:08.4410210Z ##[endgroup]
+2026-06-02T19:07:09.1120031Z ##[group]Post Run actions/checkout@v4.2.2
+2026-06-02T19:07:09.4419210Z /usr/bin/git version
+2026-06-02T19:07:09.9910210Z Removing extraheader from the repository
+2026-06-02T19:07:10.1120031Z ##[endgroup]
+2026-06-02T19:07:10.4410210Z Cleaning up orphan processes
+2026-06-02T19:07:10.9910210Z Evaluate and set job outputs

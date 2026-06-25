@@ -1,0 +1,15 @@
+2026-06-04T21:02:03.1120031Z ##[group]Run pytest --tb=long -p no:cacheprovider --no-header -r ""
+2026-06-04T21:02:03.1136110Z ##[endgroup]
+2026-06-04T21:02:19.0091132Z collected 12 items
+2026-06-04T21:02:31.4410210Z tests/test_quote.py .F..
+2026-06-04T21:02:31.4419210Z
+2026-06-04T21:02:31.4425031Z =================================== FAILURES ===================================
+2026-06-04T21:02:31.4431102Z _____________________________ test_quote_rounding ______________________________
+2026-06-04T21:02:31.4437110Z
+2026-06-04T21:02:31.4442210Z     def test_quote_rounding() -> None:
+2026-06-04T21:02:31.4448031Z         quote = price(Cart([Item("sku-1", 3)]), currency="EUR")
+2026-06-04T21:02:31.4453110Z >       assert quote.total == Decimal("11.97")
+2026-06-04T21:02:31.4458210Z E       AssertionError: assert Decimal('11.98') == Decimal('11.97')
+2026-06-04T21:02:31.4463102Z
+2026-06-04T21:02:31.4468110Z tests/test_quote.py:31: AssertionError
+2026-06-04T21:02:32.9910210Z ##[error]Process completed with exit code 1.

@@ -1,0 +1,16 @@
+2026-05-26T23:02:03.1120031Z ##[group]Run pytest -q tests/integration --durations=20
+2026-05-26T23:02:03.1129210Z pytest -q tests/integration --durations=20
+2026-05-26T23:02:03.1136110Z ##[endgroup]
+2026-05-26T23:02:09.0091132Z Creating checkout-postgres-1 ... done
+2026-05-26T23:02:11.4410210Z Creating checkout-ledger-worker-1 ... done
+2026-05-26T23:02:12.4419210Z Attaching to checkout-postgres-1, checkout-ledger-worker-1
+2026-05-26T23:38:02.4425031Z ledger-worker-1  | [2026-05-26T23:38:02Z] replay batch 1840/2000 heap=5.9GiB
+2026-05-26T23:38:19.4431102Z ledger-worker-1  | [2026-05-26T23:38:19Z] replay batch 1860/2000 heap=6.4GiB
+2026-05-26T23:38:37.4437110Z ledger-worker-1  | [2026-05-26T23:38:37Z] replay batch 1880/2000 heap=6.9GiB
+2026-05-26T23:38:51.4442210Z ledger-worker-1 exited with code 137
+2026-05-26T23:38:51.4448031Z Aborting on container exit...
+2026-05-26T23:38:52.4453110Z Stopping checkout-postgres-1  ... done
+2026-05-26T23:38:53.4458210Z /home/runner/work/_temp/9f31ab02-4c11-4a09-8c31-2d7fb01e5a44.sh: line 3:  3312 Killed                  pytest -q tests/integration --durations=20
+2026-05-26T23:38:53.9910210Z ##[error]Process completed with exit code 137.
+2026-05-26T23:38:54.1120031Z Post job cleanup.
+2026-05-26T23:38:54.4410210Z Cleaning up orphan processes
