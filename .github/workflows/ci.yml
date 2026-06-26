@@ -1,0 +1,86 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: lint, types and tests
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Ruff
+        run: ruff check --output-format=github .
+
+      - name: Mypy
+        # Tests are included: a fixture that stops type-checking is a fixture
+        # that has drifted from the code it exercises.
+        run: mypy --strict pipeline_doctor scripts tests
+
+      - name: Tests
+        # Everything is fixture-driven; the suite never opens a socket.
+        run: pytest
+
+  demo:
+    name: demo runs and the corpus is reproducible
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        run: pip install -e "."
+
+      - name: The bundled corpus analyses end to end
+        run: make demo
+
+      - name: The committed corpus still matches its generator
+        # The corpus is committed so the demo needs no generation step, which
+        # makes it possible for the two to drift. This catches that.
+        run: |
+          python scripts/build_corpus.py --out /tmp/corpus-check
+          diff -r corpus /tmp/corpus-check
+
+      - name: The HTML report pulls nothing from the network
+        # Log text can legitimately contain a URL; what must not appear is a tag
+        # or a stylesheet rule that would make the browser fetch anything.
+        run: |
+          if grep -nEi '<script|<link |<img|<iframe| src=|@import|url\(' out/report.html; then
+            echo "the report must stay self-contained"
+            exit 1
+          fi
+
+      - uses: actions/upload-artifact@v4.4.3
+        with:
+          name: report
+          path: out/
+          retention-days: 7
